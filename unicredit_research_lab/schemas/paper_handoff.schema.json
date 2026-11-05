@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Research Lab paper handoff (not a native OpenClaw schema)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "symbol",
+    "currency",
+    "mode",
+    "data_kind",
+    "eligible_for_live",
+    "created_at",
+    "frozen_hash",
+    "dataset_hash",
+    "source_hash",
+    "candidate",
+    "evidence",
+    "execution",
+    "allowed_actions",
+    "forbidden_actions",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "symbol": {
+      "const": "UCG"
+    },
+    "currency": {
+      "const": "EUR"
+    },
+    "mode": {
+      "const": "paper_only"
+    },
+    "data_kind": {
+      "enum": [
+        "synthetic",
+        "real"
+      ]
+    },
+    "eligible_for_live": {
+      "const": false
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "frozen_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "dataset_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "candidate": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "execution": {
+      "type": "object"
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "symbol": "UCG",
+  "currency": "EUR",
+  "timezone": "Europe/Rome",
+  "data_kind": "synthetic",
+  "bar_minutes": 1,
+  "timestamp_semantics": "interval_start",
+  "price_basis": "raw",
+  "volume_basis": "primary_continuous",
+  "source": "Invented seeded random process; NOT UniCredit market data",
+  "source_reference": "synthetic-generator-v0.1 seed=17",
+  "acquired_at": "2026-11-05T00:00:00+00:00",
+  "license_note": "Generated software fixture; contains no licensed market observations",
+  "corporate_action_policy": "Synthetic series has no corporate actions",
+  "bars_file": "bars.csv",
+  "sessions_file": "sessions.csv",
+  "provenance_verified": false,
+  "notes": "Invented weekday 09:00\u201312:00 sessions; NOT the real Milan calendar or full trading day."
+}

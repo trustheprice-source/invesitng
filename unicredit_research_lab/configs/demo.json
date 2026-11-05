@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "study_id": "ucg_intraday_v1",
+  "features": {
+    "bar_minutes": 5,
+    "volume_lookback_sessions": 20,
+    "min_volume_history_sessions": 10,
+    "context_max_age_minutes": 15
+  },
+  "execution": {
+    "initial_cash": 10000.0,
+    "allocation_fraction": 0.25,
+    "commission_rate": 0.0005,
+    "minimum_commission": 3.0,
+    "round_trip_spread_bps": 10.0,
+    "slippage_bps_per_side": 2.0,
+    "execution_mode": "bar_proxy",
+    "latency_minutes": 1,
+    "holding_minutes": 30,
+    "stop_loss_pct": 0.01,
+    "daily_loss_limit_pct": 0.02,
+    "score_threshold": 0.0,
+    "cooldown_minutes": 5
+  },
+  "research": {
+    "train_sessions": 60,
+    "test_sessions": 20,
+    "holdout_sessions": 30,
+    "max_trials": 12,
+    "bootstrap_samples": 5000,
+    "block_length": 5,
+    "alpha": 0.05,
+    "seed": 17
+  },
+  "criteria": {
+    "min_evaluation_sessions": 60,
+    "min_trades": 30,
+    "min_active_week_fraction": 0.6,
+    "max_drawdown": 0.1,
+    "min_mean_daily_return": 0.0
+  },
+  "assumptions": {
+    "broker_costs_verified": false,
+    "risk_mandate_approved": false,
+    "notes": "Illustrative research assumptions; ordinary matched same-day share round trips only. Personal tax, data fees and operating costs excluded."
+  },
+  "candidates": [
+    {
+      "id": "pullback_v1",
+      "kind": "rule",
+      "name": "trend_pullback",
+      "parameters": {},
+      "score_threshold": 0.0
+    },
+    {
+      "id": "breakout_v1",
+      "kind": "rule",
+      "name": "opening_breakout",
+      "parameters": {},
+      "score_threshold": 0.0
+    },
+    {
+      "id": "reversion_v1",
+      "kind": "rule",
+      "name": "mean_reversion",
+      "parameters": {},
+      "score_threshold": 0.0
+    },
+    {
+      "id": "ridge_v1",
+      "kind": "model",
+      "name": "ridge",
+      "parameters": {
+        "alpha": 10.0
+      },
+      "score_threshold": 0.0005
+    }
+  ]
+}

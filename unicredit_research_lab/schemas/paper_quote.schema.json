@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paper-only quote observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quote_id",
+    "timestamp",
+    "symbol",
+    "bid",
+    "ask",
+    "bid_size",
+    "ask_size"
+  ],
+  "properties": {
+    "quote_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "symbol": {
+      "const": "UCG"
+    },
+    "bid": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "ask": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "bid_size": {
+      "type": "number",
+      "minimum": 0
+    },
+    "ask_size": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

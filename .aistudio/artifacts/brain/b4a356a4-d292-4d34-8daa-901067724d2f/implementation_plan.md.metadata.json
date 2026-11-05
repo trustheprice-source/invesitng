@@ -1,0 +1,6 @@
+{
+  "summary": "Revised implementation plan for UniCredit Research Lab v0.2.0, establishing a hybrid architecture where research & backtest exploration runs interactively, while candidate freezing and the one-shot holdout gate are strictly enforced by the server-side Python engine and persistent SQLite ledger to guarantee statistical integrity.",
+  "updatedAt": "2026-11-05T19:45:15.994972875Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

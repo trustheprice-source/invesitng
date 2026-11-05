@@ -1,0 +1,3082 @@
+{
+  "study_id": "ucg_intraday_v1",
+  "dataset_hash": "b35a7795d0170069fc13f2d757f48cf19b345b594994d9ed1306095dd2a1019a",
+  "config_hash": "2b213a459e93e3017030a71470f1dae1cab0e7a8ef175ebe2d2a3b42b1411907",
+  "source_hash": "b423f740234ffbf5af61b88fe61c791ce5efa05b476680697a1da853aca2b2a7",
+  "created_at": "2026-11-05T17:55:48.653967+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.8.0",
+    "project": "0.1.0",
+    "scipy": "1.17.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "lightgbm": "not_installed"
+  },
+  "phase": "development",
+  "data_kind": "synthetic",
+  "eligible_for_live": false,
+  "assumptions": {
+    "broker_costs_verified": false,
+    "risk_mandate_approved": false,
+    "notes": "Illustrative research assumptions; ordinary matched same-day share round trips only. Personal tax, data fees and operating costs excluded."
+  },
+  "execution": {
+    "initial_cash": 10000.0,
+    "allocation_fraction": 0.25,
+    "commission_rate": 0.0005,
+    "minimum_commission": 3.0,
+    "round_trip_spread_bps": 10.0,
+    "slippage_bps_per_side": 2.0,
+    "execution_mode": "bar_proxy",
+    "latency_minutes": 1,
+    "holding_minutes": 30,
+    "stop_loss_pct": 0.01,
+    "daily_loss_limit_pct": 0.02,
+    "score_threshold": 0.0,
+    "cooldown_minutes": 5
+  },
+  "holdout": {
+    "first": "2020-08-03",
+    "last": "2020-09-11",
+    "sessions": 30,
+    "evaluated": false
+  },
+  "registered_trials": 4,
+  "search_budget": 12,
+  "results": [
+    {
+      "candidate": {
+        "id": "pullback_v1",
+        "kind": "rule",
+        "name": "trend_pullback",
+        "parameters": {},
+        "score_threshold": 0.0
+      },
+      "equity": [
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-03-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-03-31",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.00029012919655513336,
+          "equity": 10002.90129196555,
+          "net_pnl": 2.9012919655506266,
+          "session_date": "2020-04-06",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10002.90129196555,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10002.90129196555,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.002128243518767947,
+          "equity": 9981.61268212205,
+          "net_pnl": -21.288609843501035,
+          "session_date": "2020-04-09",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0024199261999729993,
+          "equity": 9957.4579160746,
+          "net_pnl": -24.15476604744981,
+          "session_date": "2020-04-10",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9957.4579160746,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0010472740033588002,
+          "equity": 9947.029729259555,
+          "net_pnl": -10.428186815044683,
+          "session_date": "2020-04-23",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9947.029729259555,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0017347358439253613,
+          "equity": 9929.774260247617,
+          "net_pnl": -17.25546901193775,
+          "session_date": "2020-04-27",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0032625632485031586,
+          "equity": 9897.377743680201,
+          "net_pnl": -32.396516567416256,
+          "session_date": "2020-04-28",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.377743680201,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.377743680201,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.377743680201,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 3.690398341027468e-05,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.3652526640580618,
+          "session_date": "2020-05-04",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-11",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-12",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9897.74299634426,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0011514949500059934,
+          "equity": 9909.140197421006,
+          "net_pnl": 11.397201076746569,
+          "session_date": "2020-05-14",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9909.140197421006,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0002735649832398268,
+          "equity": 9906.429403648977,
+          "net_pnl": -2.71079377202841,
+          "session_date": "2020-05-18",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9906.429403648977,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9906.429403648977,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9906.429403648977,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9906.429403648977,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9906.429403648977,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.000994190034507847,
+          "equity": 9896.580530258314,
+          "net_pnl": -9.848873390663357,
+          "session_date": "2020-05-26",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.580530258314,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.580530258314,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.580530258314,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.580530258314,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.580530258314,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -4.31183094813381e-05,
+          "equity": 9896.153806436203,
+          "net_pnl": -0.42672382211094373,
+          "session_date": "2020-06-03",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.153806436203,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-04",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9896.153806436203,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.002478195144252626,
+          "equity": 9871.629206126316,
+          "net_pnl": -24.52460030988732,
+          "session_date": "2020-06-08",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9871.629206126316,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9871.629206126316,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0005079229042721511,
+          "equity": 9866.615179550043,
+          "net_pnl": -5.014026576272954,
+          "session_date": "2020-06-11",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9866.615179550043,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-12",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0032779275566203747,
+          "equity": 9834.273129762427,
+          "net_pnl": -32.342049787615906,
+          "session_date": "2020-06-15",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9834.273129762427,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9834.273129762427,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9834.273129762427,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-18",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9834.273129762427,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9834.273129762427,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0019007723869379767,
+          "equity": 9815.580414951768,
+          "net_pnl": -18.6927148106588,
+          "session_date": "2020-06-23",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9815.580414951768,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9815.580414951768,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9815.580414951768,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-26",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0014638586297034406,
+          "equity": 9801.211792855793,
+          "net_pnl": -14.368622095975297,
+          "session_date": "2020-06-29",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0032694685251577482,
+          "equity": 9769.167039390646,
+          "net_pnl": -32.04475346514664,
+          "session_date": "2020-06-30",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9769.167039390646,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0013308668120085576,
+          "equity": 9756.165579196953,
+          "net_pnl": -13.001460193692765,
+          "session_date": "2020-07-14",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9756.165579196953,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9756.165579196953,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9756.165579196953,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9756.165579196953,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9756.165579196953,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9756.165579196953,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0012822855025955704,
+          "equity": 9743.655389513828,
+          "net_pnl": -12.510189683125645,
+          "session_date": "2020-07-23",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9743.655389513828,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9743.655389513828,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9743.655389513828,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9743.655389513828,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9743.655389513828,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9743.655389513828,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-31",
+          "trade_count": 0
+        }
+      ],
+      "evidence": {
+        "caveats": [
+          "Illustrative screening assumptions; thresholds are not statistical laws or a personal risk mandate.",
+          "Circular block intervals are approximate conditional estimates, not probabilities of future profit.",
+          "Inference screening requires blocks shorter than the sample and at least 10 expected bootstrap draws per adjusted tail; these checks do not establish stability or adequate dependence modeling.",
+          "Family correction covers the recorded bounded search only; adaptive searches and regime changes remain risks.",
+          "Historical drawdown does not cap future loss; bar execution approximations can miss real costs.",
+          "A subsequent frozen prospective paper evaluation is required. This version never authorizes live trading."
+        ],
+        "criteria": {
+          "max_drawdown": 0.1,
+          "min_active_week_fraction": 0.6,
+          "min_evaluation_sessions": 60,
+          "min_mean_daily_return": 0.0,
+          "min_trades": 30
+        },
+        "data_kind": "synthetic",
+        "drawdown_warning": "Reported drawdown uses daily ending equity; it does not bound intraday or future losses.",
+        "eligible_for_live": false,
+        "execution_warning": "Minute-bar and quote-snapshot fills are approximations; queue, depth and transient spread behavior are not reproduced.",
+        "failed_checks": [
+          "trades missing, nonfinite or below 30",
+          "net_return must be finite and strictly positive",
+          "bootstrap lower bound must be strictly above min_mean_daily_return",
+          "Real-data provenance has not been independently verified",
+          "Synthetic observations cannot establish a qualifying trading strategy"
+        ],
+        "inference_valid": true,
+        "phase": "development",
+        "status": "SYNTHETIC_DEMO"
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "test_first": "2020-03-30",
+          "test_last": "2020-04-24",
+          "train_first": "2020-01-06",
+          "train_last": "2020-03-27"
+        },
+        {
+          "fold": 1,
+          "test_first": "2020-04-27",
+          "test_last": "2020-05-22",
+          "train_first": "2020-02-03",
+          "train_last": "2020-04-24"
+        },
+        {
+          "fold": 2,
+          "test_first": "2020-05-25",
+          "test_last": "2020-06-19",
+          "train_first": "2020-03-02",
+          "train_last": "2020-05-22"
+        },
+        {
+          "fold": 3,
+          "test_first": "2020-06-22",
+          "test_last": "2020-07-17",
+          "train_first": "2020-03-30",
+          "train_last": "2020-06-19"
+        },
+        {
+          "fold": 4,
+          "test_first": "2020-07-20",
+          "test_last": "2020-07-31",
+          "train_first": "2020-04-27",
+          "train_last": "2020-07-17"
+        }
+      ],
+      "metrics": {
+        "active_day_fraction": 0.2111111111111111,
+        "active_week_fraction": 0.7777777777777778,
+        "annualization": "Approximate 252-session convention; extrapolation, not a forecast.",
+        "annualized_return": -0.07013186892079948,
+        "bootstrap_ci": {
+          "alpha": 0.004166666666666667,
+          "assumptions": "Approximate; stable returns and adequate block length for dependence. Not a future-profit probability.",
+          "block_length": 5,
+          "expected_samples_per_tail": 10.416666666666666,
+          "inference_failures": [],
+          "inference_policy": "Screening checks only: block_length < n_observations and at least 10 expected bootstrap draws per adjusted tail. Passing is not proof of statistical validity.",
+          "inference_valid": true,
+          "lower": -0.0005594392892589205,
+          "mean": -0.00028818206081482583,
+          "method": "circular_block_bootstrap_percentile",
+          "minimum_expected_tail_samples": 10,
+          "n_bootstrap": 5000,
+          "n_observations": 90,
+          "upper": -6.345080102710336e-05
+        },
+        "evaluation_sessions": 90,
+        "evaluation_weeks": 18,
+        "family_size": 12,
+        "inference_failures": [],
+        "inference_valid": true,
+        "longest_no_trade_sessions": 9,
+        "max_drawdown": 0.02591707094620166,
+        "mean_daily_return": -0.00028818206081482583,
+        "mean_trade_net_return": -0.004956032113493979,
+        "multiple_testing_adjustment": "Approximate Bonferroni alpha/family_size for the recorded bounded family. Does not protect against unrecorded or adaptive searches.",
+        "net_return": -0.02563446104861722,
+        "nominal_alpha": 0.05,
+        "profit_factor": 0.06530059076825974,
+        "tail_and_concentration": {
+          "best_day": 0.0011514949500059934,
+          "best_day_share_of_positive_daily_pnl": 0.7772366832443793,
+          "worst_trade_net_return": -0.01314019059871599
+        },
+        "total_fees": 126.0,
+        "total_net_pnl": -256.3446104861723,
+        "trades": 21,
+        "win_rate": 0.14285714285714285,
+        "worst_day": -0.0032779275566203747,
+        "worst_week": -0.0049916394070183
+      }
+    },
+    {
+      "candidate": {
+        "id": "breakout_v1",
+        "kind": "rule",
+        "name": "opening_breakout",
+        "parameters": {},
+        "score_threshold": 0.0
+      },
+      "equity": [
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-03-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-03-31",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0005407399802184187,
+          "equity": 10005.407399802185,
+          "net_pnl": 5.407399802184955,
+          "session_date": "2020-04-06",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10005.407399802185,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10005.407399802185,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10005.407399802185,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10005.407399802185,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10005.407399802185,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10005.407399802185,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0006038145377168513,
+          "equity": 9999.365989358404,
+          "net_pnl": -6.041410443780478,
+          "session_date": "2020-04-15",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9999.365989358404,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0009129584260917367,
+          "equity": 9990.236983922845,
+          "net_pnl": -9.12900543555952,
+          "session_date": "2020-04-17",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9990.236983922845,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9990.236983922845,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9990.236983922845,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9990.236983922845,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9990.236983922845,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0017345018910895904,
+          "equity": 9972.908898981797,
+          "net_pnl": -17.328084941047564,
+          "session_date": "2020-04-27",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9972.908898981797,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0001474740601002944,
+          "equity": 9971.438153615454,
+          "net_pnl": -1.4707453663431806,
+          "session_date": "2020-04-29",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0022728120839502486,
+          "equity": 9948.774948485554,
+          "net_pnl": -22.663205129900234,
+          "session_date": "2020-04-30",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9948.774948485554,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 4.0841089720133894e-05,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.40631881027547934,
+          "session_date": "2020-05-04",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-11",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9949.18126729583,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-12",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0011310421958865557,
+          "equity": 9937.928323467993,
+          "net_pnl": -11.252943827836134,
+          "session_date": "2020-05-13",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9937.928323467993,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9937.928323467993,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.001602985278997493,
+          "equity": 9921.997970661741,
+          "net_pnl": -15.930352806251904,
+          "session_date": "2020-05-18",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-26",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-04",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-11",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-12",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-18",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9921.997970661741,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0018923829221573207,
+          "equity": 9903.221751148381,
+          "net_pnl": -18.776219513360047,
+          "session_date": "2020-06-23",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-26",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9903.221751148381,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0013224704530111486,
+          "equity": 9890.12503299287,
+          "net_pnl": -13.096718155511553,
+          "session_date": "2020-07-14",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0021369036175865608,
+          "equity": 9868.990789031484,
+          "net_pnl": -21.134243961385437,
+          "session_date": "2020-07-15",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9868.990789031484,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0007489940592927402,
+          "equity": 9861.598973559285,
+          "net_pnl": -7.391815472199596,
+          "session_date": "2020-07-30",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9861.598973559285,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-31",
+          "trade_count": 0
+        }
+      ],
+      "evidence": {
+        "caveats": [
+          "Illustrative screening assumptions; thresholds are not statistical laws or a personal risk mandate.",
+          "Circular block intervals are approximate conditional estimates, not probabilities of future profit.",
+          "Inference screening requires blocks shorter than the sample and at least 10 expected bootstrap draws per adjusted tail; these checks do not establish stability or adequate dependence modeling.",
+          "Family correction covers the recorded bounded search only; adaptive searches and regime changes remain risks.",
+          "Historical drawdown does not cap future loss; bar execution approximations can miss real costs.",
+          "A subsequent frozen prospective paper evaluation is required. This version never authorizes live trading."
+        ],
+        "criteria": {
+          "max_drawdown": 0.1,
+          "min_active_week_fraction": 0.6,
+          "min_evaluation_sessions": 60,
+          "min_mean_daily_return": 0.0,
+          "min_trades": 30
+        },
+        "data_kind": "synthetic",
+        "drawdown_warning": "Reported drawdown uses daily ending equity; it does not bound intraday or future losses.",
+        "eligible_for_live": false,
+        "execution_warning": "Minute-bar and quote-snapshot fills are approximations; queue, depth and transient spread behavior are not reproduced.",
+        "failed_checks": [
+          "trades missing, nonfinite or below 30",
+          "active_week_fraction missing, nonfinite or below 0.6",
+          "net_return must be finite and strictly positive",
+          "bootstrap lower bound must be strictly above min_mean_daily_return",
+          "Real-data provenance has not been independently verified",
+          "Synthetic observations cannot establish a qualifying trading strategy"
+        ],
+        "inference_valid": true,
+        "phase": "development",
+        "status": "SYNTHETIC_DEMO"
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "test_first": "2020-03-30",
+          "test_last": "2020-04-24",
+          "train_first": "2020-01-06",
+          "train_last": "2020-03-27"
+        },
+        {
+          "fold": 1,
+          "test_first": "2020-04-27",
+          "test_last": "2020-05-22",
+          "train_first": "2020-02-03",
+          "train_last": "2020-04-24"
+        },
+        {
+          "fold": 2,
+          "test_first": "2020-05-25",
+          "test_last": "2020-06-19",
+          "train_first": "2020-03-02",
+          "train_last": "2020-05-22"
+        },
+        {
+          "fold": 3,
+          "test_first": "2020-06-22",
+          "test_last": "2020-07-17",
+          "train_first": "2020-03-30",
+          "train_last": "2020-06-19"
+        },
+        {
+          "fold": 4,
+          "test_first": "2020-07-20",
+          "test_last": "2020-07-31",
+          "train_first": "2020-04-27",
+          "train_last": "2020-07-17"
+        }
+      ],
+      "metrics": {
+        "active_day_fraction": 0.14444444444444443,
+        "active_week_fraction": 0.5,
+        "annualization": "Approximate 252-session convention; extrapolation, not a forecast.",
+        "annualized_return": -0.03827136807416598,
+        "bootstrap_ci": {
+          "alpha": 0.004166666666666667,
+          "assumptions": "Approximate; stable returns and adequate block length for dependence. Not a future-profit probability.",
+          "block_length": 5,
+          "expected_samples_per_tail": 10.416666666666666,
+          "inference_failures": [],
+          "inference_policy": "Screening checks only: block_length < n_observations and at least 10 expected bootstrap draws per adjusted tail. Passing is not proof of statistical validity.",
+          "inference_valid": true,
+          "lower": -0.00032894975320947915,
+          "mean": -0.00015471953839935542,
+          "method": "circular_block_bootstrap_percentile",
+          "minimum_expected_tail_samples": 10,
+          "n_bootstrap": 5000,
+          "n_observations": 90,
+          "upper": -1.8134432451065242e-05
+        },
+        "evaluation_sessions": 90,
+        "evaluation_weeks": 18,
+        "family_size": 12,
+        "inference_failures": [],
+        "inference_valid": true,
+        "longest_no_trade_sessions": 25,
+        "max_drawdown": 0.0143730705304157,
+        "mean_daily_return": -0.00015471953839935542,
+        "mean_trade_net_return": -0.003986628646651251,
+        "multiple_testing_adjustment": "Approximate Bonferroni alpha/family_size for the recorded bounded family. Does not protect against unrecorded or adaptive searches.",
+        "net_return": -0.013840102644071539,
+        "nominal_alpha": 0.05,
+        "profit_factor": 0.08408071061504463,
+        "tail_and_concentration": {
+          "best_day": 0.0005407399802184187,
+          "best_day_share_of_positive_daily_pnl": 0.9301103411842768,
+          "worst_trade_net_return": -0.009100885282175782
+        },
+        "total_fees": 84.0,
+        "total_net_pnl": -138.4010264407152,
+        "trades": 14,
+        "win_rate": 0.21428571428571427,
+        "worst_day": -0.0022728120839502486,
+        "worst_week": -0.004150255444792195
+      }
+    },
+    {
+      "candidate": {
+        "id": "reversion_v1",
+        "kind": "rule",
+        "name": "mean_reversion",
+        "parameters": {},
+        "score_threshold": 0.0
+      },
+      "equity": [
+        {
+          "daily_return": -0.0008089276468102868,
+          "equity": 9991.910723531897,
+          "net_pnl": -8.08927646810298,
+          "session_date": "2020-03-30",
+          "trade_count": 2
+        },
+        {
+          "daily_return": -0.001932091304159833,
+          "equity": 9972.60543971102,
+          "net_pnl": -19.305283820876866,
+          "session_date": "2020-03-31",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0008514208389900357,
+          "equity": 9981.096323801416,
+          "net_pnl": 8.490884090395411,
+          "session_date": "2020-04-01",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9981.096323801416,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0005532854601322246,
+          "equity": 9986.618719273554,
+          "net_pnl": 5.522395472138669,
+          "session_date": "2020-04-03",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9986.618719273554,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0020283959041840216,
+          "equity": 9966.361902766732,
+          "net_pnl": -20.25681650682236,
+          "session_date": "2020-04-07",
+          "trade_count": 3
+        },
+        {
+          "daily_return": -0.005692697438987704,
+          "equity": 9909.626419886827,
+          "net_pnl": -56.73548287990525,
+          "session_date": "2020-04-08",
+          "trade_count": 3
+        },
+        {
+          "daily_return": -0.00077203091286282,
+          "equity": 9901.975881955752,
+          "net_pnl": -7.650537931074723,
+          "session_date": "2020-04-09",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0025568024804906164,
+          "equity": 9876.65848545901,
+          "net_pnl": -25.31739649674273,
+          "session_date": "2020-04-10",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9876.65848545901,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9876.65848545901,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9876.65848545901,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0009244677897026765,
+          "equity": 9867.527832819309,
+          "net_pnl": -9.130652639700202,
+          "session_date": "2020-04-16",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9867.527832819309,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.00016896024147849964,
+          "equity": 9869.195052704737,
+          "net_pnl": 1.6672198854284943,
+          "session_date": "2020-04-20",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9869.195052704737,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0018158466201079193,
+          "equity": 9851.274108225098,
+          "net_pnl": -17.92094447963973,
+          "session_date": "2020-04-22",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9851.274108225098,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9851.274108225098,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0019634802192217693,
+          "equity": 9831.931326379467,
+          "net_pnl": -19.34278184563118,
+          "session_date": "2020-04-27",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9831.931326379467,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9831.931326379467,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9831.931326379467,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.00212184677872973,
+          "equity": 9811.069474565897,
+          "net_pnl": -20.861851813569956,
+          "session_date": "2020-05-01",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9811.069474565897,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-04",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9811.069474565897,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9811.069474565897,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.00040896549864699594,
+          "equity": 9807.05708564597,
+          "net_pnl": -4.012388919925797,
+          "session_date": "2020-05-07",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9807.05708564597,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.003773720368303368,
+          "equity": 9770.047994568755,
+          "net_pnl": -37.009091077216,
+          "session_date": "2020-05-11",
+          "trade_count": 2
+        },
+        {
+          "daily_return": -0.0006123378740016117,
+          "equity": 9764.065424150867,
+          "net_pnl": -5.982570417887473,
+          "session_date": "2020-05-12",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9764.065424150867,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9764.065424150867,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9764.065424150867,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9764.065424150867,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-18",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.00204227100750487,
+          "equity": 9744.124556419743,
+          "net_pnl": -19.940867731123944,
+          "session_date": "2020-05-19",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9744.124556419743,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9744.124556419743,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 6.636907120283198e-05,
+          "equity": 9744.771264916239,
+          "net_pnl": 0.6467084964951937,
+          "session_date": "2020-05-22",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0011245165201003715,
+          "equity": 9733.81310864424,
+          "net_pnl": -10.958156271997723,
+          "session_date": "2020-05-25",
+          "trade_count": 3
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9733.81310864424,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-26",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0005105819650015331,
+          "equity": 9728.843199220271,
+          "net_pnl": -4.969909423969511,
+          "session_date": "2020-05-27",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9728.843199220271,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9728.843199220271,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9728.843199220271,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0012203126514507279,
+          "equity": 9716.970968780282,
+          "net_pnl": -11.872230439988925,
+          "session_date": "2020-06-02",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0007280037438112119,
+          "equity": 9709.896977536506,
+          "net_pnl": -7.073991243776618,
+          "session_date": "2020-06-03",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0012775025559703668,
+          "equity": 9697.492559329494,
+          "net_pnl": -12.404418207011986,
+          "session_date": "2020-06-04",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0004686193996255028,
+          "equity": 9692.948126188468,
+          "net_pnl": -4.544433141025365,
+          "session_date": "2020-06-05",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9692.948126188468,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0002960223654698835,
+          "equity": 9690.078796755777,
+          "net_pnl": -2.869329432691302,
+          "session_date": "2020-06-09",
+          "trade_count": 3
+        },
+        {
+          "daily_return": -0.006979447327666977,
+          "equity": 9622.447402192878,
+          "net_pnl": -67.631394562899,
+          "session_date": "2020-06-10",
+          "trade_count": 3
+        },
+        {
+          "daily_return": -0.001983274700864901,
+          "equity": 9603.363445699706,
+          "net_pnl": -19.08395649317208,
+          "session_date": "2020-06-11",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0007475542882117159,
+          "equity": 9596.184410174617,
+          "net_pnl": -7.179035525088693,
+          "session_date": "2020-06-12",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9596.184410174617,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0027440276719562506,
+          "equity": 9569.852214607903,
+          "net_pnl": -26.33219556671429,
+          "session_date": "2020-06-16",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9569.852214607903,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0026559552417839694,
+          "equity": 9544.435115455417,
+          "net_pnl": -25.417099152486117,
+          "session_date": "2020-06-18",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9544.435115455417,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0026893139174023473,
+          "equity": 9518.76713326568,
+          "net_pnl": -25.667982189737813,
+          "session_date": "2020-06-22",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9518.76713326568,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9518.76713326568,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9518.76713326568,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0038760436268582277,
+          "equity": 9481.871976583237,
+          "net_pnl": -36.895156682441666,
+          "session_date": "2020-06-26",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9481.871976583237,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.001674256024932208,
+          "equity": 9465.996895298807,
+          "net_pnl": -15.875081284430053,
+          "session_date": "2020-06-30",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0018880826882538004,
+          "equity": 9448.12431043373,
+          "net_pnl": -17.872584865077442,
+          "session_date": "2020-07-01",
+          "trade_count": 2
+        },
+        {
+          "daily_return": -0.00039034509673507856,
+          "equity": 9444.436281435808,
+          "net_pnl": -3.6880289979217196,
+          "session_date": "2020-07-02",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9444.436281435808,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.006054634353749311,
+          "equity": 9387.25367307443,
+          "net_pnl": -57.18260836137779,
+          "session_date": "2020-07-06",
+          "trade_count": 3
+        },
+        {
+          "daily_return": -0.004437944087823054,
+          "equity": 9345.593566135114,
+          "net_pnl": -41.66010693931639,
+          "session_date": "2020-07-07",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9345.593566135114,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -9.185037010617236e-05,
+          "equity": 9344.735169907202,
+          "net_pnl": -0.8583962279117259,
+          "session_date": "2020-07-09",
+          "trade_count": 2
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9344.735169907202,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0016383796891346059,
+          "equity": 9360.04539420992,
+          "net_pnl": 15.31022430271696,
+          "session_date": "2020-07-13",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9360.04539420992,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.001828403447073912,
+          "equity": 9342.931454946378,
+          "net_pnl": -17.113939263541397,
+          "session_date": "2020-07-15",
+          "trade_count": 2
+        },
+        {
+          "daily_return": -0.0008905666046236105,
+          "equity": 9334.610952203315,
+          "net_pnl": -8.320502743063116,
+          "session_date": "2020-07-16",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0031196492014392563,
+          "equity": 9305.490240600528,
+          "net_pnl": -29.120711602787196,
+          "session_date": "2020-07-17",
+          "trade_count": 2
+        },
+        {
+          "daily_return": -0.002177980471381513,
+          "equity": 9285.223064579868,
+          "net_pnl": -20.267176020659463,
+          "session_date": "2020-07-20",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0028903555699515415,
+          "equity": 9258.385468376917,
+          "net_pnl": -26.837596202951318,
+          "session_date": "2020-07-21",
+          "trade_count": 2
+        },
+        {
+          "daily_return": -0.0010965292925835257,
+          "equity": 9248.233377508812,
+          "net_pnl": -10.152090868105006,
+          "session_date": "2020-07-22",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9248.233377508812,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9248.233377508812,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9248.233377508812,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": -0.0011550712143771902,
+          "equity": 9237.55100935061,
+          "net_pnl": -10.682368158202735,
+          "session_date": "2020-07-28",
+          "trade_count": 1
+        },
+        {
+          "daily_return": -0.0005912793444409203,
+          "equity": 9232.089036245561,
+          "net_pnl": -5.461973105047946,
+          "session_date": "2020-07-29",
+          "trade_count": 1
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9232.089036245561,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 9232.089036245561,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-31",
+          "trade_count": 0
+        }
+      ],
+      "evidence": {
+        "caveats": [
+          "Illustrative screening assumptions; thresholds are not statistical laws or a personal risk mandate.",
+          "Circular block intervals are approximate conditional estimates, not probabilities of future profit.",
+          "Inference screening requires blocks shorter than the sample and at least 10 expected bootstrap draws per adjusted tail; these checks do not establish stability or adequate dependence modeling.",
+          "Family correction covers the recorded bounded search only; adaptive searches and regime changes remain risks.",
+          "Historical drawdown does not cap future loss; bar execution approximations can miss real costs.",
+          "A subsequent frozen prospective paper evaluation is required. This version never authorizes live trading."
+        ],
+        "criteria": {
+          "max_drawdown": 0.1,
+          "min_active_week_fraction": 0.6,
+          "min_evaluation_sessions": 60,
+          "min_mean_daily_return": 0.0,
+          "min_trades": 30
+        },
+        "data_kind": "synthetic",
+        "drawdown_warning": "Reported drawdown uses daily ending equity; it does not bound intraday or future losses.",
+        "eligible_for_live": false,
+        "execution_warning": "Minute-bar and quote-snapshot fills are approximations; queue, depth and transient spread behavior are not reproduced.",
+        "failed_checks": [
+          "net_return must be finite and strictly positive",
+          "bootstrap lower bound must be strictly above min_mean_daily_return",
+          "Real-data provenance has not been independently verified",
+          "Synthetic observations cannot establish a qualifying trading strategy"
+        ],
+        "inference_valid": true,
+        "phase": "development",
+        "status": "SYNTHETIC_DEMO"
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "test_first": "2020-03-30",
+          "test_last": "2020-04-24",
+          "train_first": "2020-01-06",
+          "train_last": "2020-03-27"
+        },
+        {
+          "fold": 1,
+          "test_first": "2020-04-27",
+          "test_last": "2020-05-22",
+          "train_first": "2020-02-03",
+          "train_last": "2020-04-24"
+        },
+        {
+          "fold": 2,
+          "test_first": "2020-05-25",
+          "test_last": "2020-06-19",
+          "train_first": "2020-03-02",
+          "train_last": "2020-05-22"
+        },
+        {
+          "fold": 3,
+          "test_first": "2020-06-22",
+          "test_last": "2020-07-17",
+          "train_first": "2020-03-30",
+          "train_last": "2020-06-19"
+        },
+        {
+          "fold": 4,
+          "test_first": "2020-07-20",
+          "test_last": "2020-07-31",
+          "train_first": "2020-04-27",
+          "train_last": "2020-07-17"
+        }
+      ],
+      "metrics": {
+        "active_day_fraction": 0.5222222222222223,
+        "active_week_fraction": 1.0,
+        "annualization": "Approximate 252-session convention; extrapolation, not a forecast.",
+        "annualized_return": -0.20046044168076005,
+        "bootstrap_ci": {
+          "alpha": 0.004166666666666667,
+          "assumptions": "Approximate; stable returns and adequate block length for dependence. Not a future-profit probability.",
+          "block_length": 5,
+          "expected_samples_per_tail": 10.416666666666666,
+          "inference_failures": [],
+          "inference_policy": "Screening checks only: block_length < n_observations and at least 10 expected bootstrap draws per adjusted tail. Passing is not proof of statistical validity.",
+          "inference_valid": true,
+          "lower": -0.0013799685506198215,
+          "mean": -0.0008862621142935678,
+          "method": "circular_block_bootstrap_percentile",
+          "minimum_expected_tail_samples": 10,
+          "n_bootstrap": 5000,
+          "n_observations": 90,
+          "upper": -0.00044825577383676707
+        },
+        "evaluation_sessions": 90,
+        "evaluation_weeks": 18,
+        "family_size": 12,
+        "inference_failures": [],
+        "inference_valid": true,
+        "longest_no_trade_sessions": 4,
+        "max_drawdown": 0.0767910963754439,
+        "mean_daily_return": -0.0008862621142935678,
+        "mean_trade_net_return": -0.004382016824855686,
+        "multiple_testing_adjustment": "Approximate Bonferroni alpha/family_size for the recorded bounded family. Does not protect against unrecorded or adaptive searches.",
+        "net_return": -0.0767910963754439,
+        "nominal_alpha": 0.05,
+        "profit_factor": 0.10070710899887031,
+        "tail_and_concentration": {
+          "best_day": 0.0016383796891346059,
+          "best_day_share_of_positive_daily_pnl": 0.48392752556851976,
+          "worst_trade_net_return": -0.013245081919100527
+        },
+        "total_fees": 438.0,
+        "total_net_pnl": -767.9109637544389,
+        "trades": 73,
+        "win_rate": 0.136986301369863,
+        "worst_day": -0.006979447327666977,
+        "worst_week": -0.011010757184744424
+      }
+    },
+    {
+      "candidate": {
+        "id": "ridge_v1",
+        "kind": "model",
+        "name": "ridge",
+        "parameters": {
+          "alpha": 10.0
+        },
+        "score_threshold": 0.0005
+      },
+      "equity": [
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-03-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-03-31",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-04-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-04",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-11",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-12",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-18",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-26",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-05-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-04",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-05",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-11",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-12",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-18",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-19",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-25",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-26",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-06-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-01",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-02",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-03",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-06",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-07",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-08",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-09",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-10",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-13",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-14",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-15",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-16",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-17",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-20",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-21",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-22",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-23",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-24",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-27",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-28",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-29",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-30",
+          "trade_count": 0
+        },
+        {
+          "daily_return": 0.0,
+          "equity": 10000.0,
+          "net_pnl": 0.0,
+          "session_date": "2020-07-31",
+          "trade_count": 0
+        }
+      ],
+      "evidence": {
+        "caveats": [
+          "Illustrative screening assumptions; thresholds are not statistical laws or a personal risk mandate.",
+          "Circular block intervals are approximate conditional estimates, not probabilities of future profit.",
+          "Inference screening requires blocks shorter than the sample and at least 10 expected bootstrap draws per adjusted tail; these checks do not establish stability or adequate dependence modeling.",
+          "Family correction covers the recorded bounded search only; adaptive searches and regime changes remain risks.",
+          "Historical drawdown does not cap future loss; bar execution approximations can miss real costs.",
+          "A subsequent frozen prospective paper evaluation is required. This version never authorizes live trading."
+        ],
+        "criteria": {
+          "max_drawdown": 0.1,
+          "min_active_week_fraction": 0.6,
+          "min_evaluation_sessions": 60,
+          "min_mean_daily_return": 0.0,
+          "min_trades": 30
+        },
+        "data_kind": "synthetic",
+        "drawdown_warning": "Reported drawdown uses daily ending equity; it does not bound intraday or future losses.",
+        "eligible_for_live": false,
+        "execution_warning": "Minute-bar and quote-snapshot fills are approximations; queue, depth and transient spread behavior are not reproduced.",
+        "failed_checks": [
+          "trades missing, nonfinite or below 30",
+          "active_week_fraction missing, nonfinite or below 0.6",
+          "net_return must be finite and strictly positive",
+          "bootstrap lower bound must be strictly above min_mean_daily_return",
+          "Real-data provenance has not been independently verified",
+          "Synthetic observations cannot establish a qualifying trading strategy"
+        ],
+        "inference_valid": true,
+        "phase": "development",
+        "status": "SYNTHETIC_DEMO"
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "test_first": "2020-03-30",
+          "test_last": "2020-04-24",
+          "train_first": "2020-01-06",
+          "train_last": "2020-03-27"
+        },
+        {
+          "fold": 1,
+          "test_first": "2020-04-27",
+          "test_last": "2020-05-22",
+          "train_first": "2020-02-03",
+          "train_last": "2020-04-24"
+        },
+        {
+          "fold": 2,
+          "test_first": "2020-05-25",
+          "test_last": "2020-06-19",
+          "train_first": "2020-03-02",
+          "train_last": "2020-05-22"
+        },
+        {
+          "fold": 3,
+          "test_first": "2020-06-22",
+          "test_last": "2020-07-17",
+          "train_first": "2020-03-30",
+          "train_last": "2020-06-19"
+        },
+        {
+          "fold": 4,
+          "test_first": "2020-07-20",
+          "test_last": "2020-07-31",
+          "train_first": "2020-04-27",
+          "train_last": "2020-07-17"
+        }
+      ],
+      "metrics": {
+        "active_day_fraction": 0.0,
+        "active_week_fraction": 0.0,
+        "annualization": "Approximate 252-session convention; extrapolation, not a forecast.",
+        "annualized_return": 0.0,
+        "bootstrap_ci": {
+          "alpha": 0.004166666666666667,
+          "assumptions": "Approximate; stable returns and adequate block length for dependence. Not a future-profit probability.",
+          "block_length": 5,
+          "expected_samples_per_tail": 10.416666666666666,
+          "inference_failures": [],
+          "inference_policy": "Screening checks only: block_length < n_observations and at least 10 expected bootstrap draws per adjusted tail. Passing is not proof of statistical validity.",
+          "inference_valid": true,
+          "lower": 0.0,
+          "mean": 0.0,
+          "method": "circular_block_bootstrap_percentile",
+          "minimum_expected_tail_samples": 10,
+          "n_bootstrap": 5000,
+          "n_observations": 90,
+          "upper": 0.0
+        },
+        "evaluation_sessions": 90,
+        "evaluation_weeks": 18,
+        "family_size": 12,
+        "inference_failures": [],
+        "inference_valid": true,
+        "longest_no_trade_sessions": 90,
+        "max_drawdown": 0.0,
+        "mean_daily_return": 0.0,
+        "mean_trade_net_return": null,
+        "multiple_testing_adjustment": "Approximate Bonferroni alpha/family_size for the recorded bounded family. Does not protect against unrecorded or adaptive searches.",
+        "net_return": 0.0,
+        "nominal_alpha": 0.05,
+        "profit_factor": null,
+        "tail_and_concentration": {
+          "best_day": 0.0,
+          "best_day_share_of_positive_daily_pnl": null,
+          "worst_trade_net_return": null
+        },
+        "total_fees": 0.0,
+        "total_net_pnl": 0.0,
+        "trades": 0,
+        "win_rate": null,
+        "worst_day": 0.0,
+        "worst_week": 0.0
+      }
+    }
+  ],
+  "failures": [],
+  "notes": [
+    "Holdout data was structurally audited but no holdout features or performance were used for development.",
+    "Daily equity carries across evaluation folds; each session ends flat.",
+    "Fixed-horizon regression targets do not include the simulator stop policy.",
+    "No-trade nominal cash reference is 0%; cash interest, personal taxes, data and operating fees excluded.",
+    "Bootstrap intervals are approximate screening diagnostics, not a probability of future profit."
+  ]
+}

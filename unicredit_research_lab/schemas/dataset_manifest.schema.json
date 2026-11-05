@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical UCG dataset manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "symbol",
+    "currency",
+    "timezone",
+    "data_kind",
+    "bar_minutes",
+    "timestamp_semantics",
+    "price_basis",
+    "volume_basis",
+    "source",
+    "source_reference",
+    "acquired_at",
+    "license_note",
+    "corporate_action_policy",
+    "bars_file",
+    "sessions_file",
+    "provenance_verified"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "symbol": {
+      "const": "UCG"
+    },
+    "currency": {
+      "const": "EUR"
+    },
+    "timezone": {
+      "const": "Europe/Rome"
+    },
+    "data_kind": {
+      "enum": [
+        "synthetic",
+        "real"
+      ]
+    },
+    "bar_minutes": {
+      "const": 1
+    },
+    "timestamp_semantics": {
+      "const": "interval_start"
+    },
+    "price_basis": {
+      "const": "raw"
+    },
+    "volume_basis": {
+      "const": "primary_continuous"
+    },
+    "acquired_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "provenance_verified": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "corporate_action_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bars_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sessions_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "news_file": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

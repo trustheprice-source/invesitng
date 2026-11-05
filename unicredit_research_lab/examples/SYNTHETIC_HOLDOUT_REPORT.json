@@ -1,0 +1,346 @@
+{
+  "study_id": "ucg_intraday_v1",
+  "phase": "holdout",
+  "data_kind": "synthetic",
+  "eligible_for_live": false,
+  "frozen_hash": "7d3aa955f8ed7402b676df61baaf6d88007d24c9b46b837b22c365435c873055",
+  "created_at": "2026-11-05T17:55:54.573837+00:00",
+  "results": [
+    {
+      "candidate": {
+        "id": "ridge_v1",
+        "kind": "model",
+        "name": "ridge",
+        "parameters": {
+          "alpha": 10.0
+        },
+        "score_threshold": 0.0005
+      },
+      "metrics": {
+        "evaluation_sessions": 30,
+        "evaluation_weeks": 6,
+        "net_return": 0.0,
+        "annualized_return": 0.0,
+        "annualization": "Approximate 252-session convention; extrapolation, not a forecast.",
+        "max_drawdown": 0.0,
+        "worst_day": 0.0,
+        "worst_week": 0.0,
+        "win_rate": null,
+        "trades": 0,
+        "active_day_fraction": 0.0,
+        "active_week_fraction": 0.0,
+        "longest_no_trade_sessions": 30,
+        "mean_daily_return": 0.0,
+        "mean_trade_net_return": null,
+        "profit_factor": null,
+        "total_fees": 0.0,
+        "total_net_pnl": 0.0,
+        "bootstrap_ci": {
+          "mean": 0.0,
+          "lower": 0.0,
+          "upper": 0.0,
+          "alpha": 0.004166666666666667,
+          "block_length": 5,
+          "n_observations": 30,
+          "n_bootstrap": 5000,
+          "method": "circular_block_bootstrap_percentile",
+          "inference_valid": true,
+          "inference_failures": [],
+          "expected_samples_per_tail": 10.416666666666666,
+          "minimum_expected_tail_samples": 10,
+          "inference_policy": "Screening checks only: block_length < n_observations and at least 10 expected bootstrap draws per adjusted tail. Passing is not proof of statistical validity.",
+          "assumptions": "Approximate; stable returns and adequate block length for dependence. Not a future-profit probability."
+        },
+        "family_size": 12,
+        "nominal_alpha": 0.05,
+        "inference_valid": true,
+        "inference_failures": [],
+        "multiple_testing_adjustment": "Approximate Bonferroni alpha/family_size for the recorded bounded family. Does not protect against unrecorded or adaptive searches.",
+        "tail_and_concentration": {
+          "worst_trade_net_return": null,
+          "best_day": 0.0,
+          "best_day_share_of_positive_daily_pnl": null
+        }
+      },
+      "evidence": {
+        "status": "SYNTHETIC_DEMO",
+        "eligible_for_live": false,
+        "data_kind": "synthetic",
+        "phase": "holdout",
+        "failed_checks": [
+          "evaluation_sessions missing, nonfinite or below 60",
+          "trades missing, nonfinite or below 30",
+          "active_week_fraction missing, nonfinite or below 0.6",
+          "net_return must be finite and strictly positive",
+          "bootstrap lower bound must be strictly above min_mean_daily_return",
+          "Real-data provenance has not been independently verified",
+          "Synthetic observations cannot establish a qualifying trading strategy"
+        ],
+        "criteria": {
+          "min_evaluation_sessions": 60,
+          "min_trades": 30,
+          "min_active_week_fraction": 0.6,
+          "max_drawdown": 0.1,
+          "min_mean_daily_return": 0.0
+        },
+        "inference_valid": true,
+        "caveats": [
+          "Illustrative screening assumptions; thresholds are not statistical laws or a personal risk mandate.",
+          "Circular block intervals are approximate conditional estimates, not probabilities of future profit.",
+          "Inference screening requires blocks shorter than the sample and at least 10 expected bootstrap draws per adjusted tail; these checks do not establish stability or adequate dependence modeling.",
+          "Family correction covers the recorded bounded search only; adaptive searches and regime changes remain risks.",
+          "Historical drawdown does not cap future loss; bar execution approximations can miss real costs.",
+          "A subsequent frozen prospective paper evaluation is required. This version never authorizes live trading."
+        ],
+        "execution_warning": "Minute-bar and quote-snapshot fills are approximations; queue, depth and transient spread behavior are not reproduced.",
+        "drawdown_warning": "Reported drawdown uses daily ending equity; it does not bound intraday or future losses."
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "train_first": "2020-05-11",
+          "train_last": "2020-07-31",
+          "test_first": "2020-08-03",
+          "test_last": "2020-09-11"
+        }
+      ],
+      "equity": [
+        {
+          "session_date": "2020-08-03",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-04",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-05",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-06",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-07",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-10",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-11",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-12",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-13",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-14",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-17",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-18",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-19",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-20",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-21",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-24",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-25",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-26",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-27",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-28",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-08-31",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-01",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-02",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-03",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-04",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-07",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-08",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-09",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-10",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        },
+        {
+          "session_date": "2020-09-11",
+          "equity": 10000.0,
+          "daily_return": 0.0,
+          "net_pnl": 0.0,
+          "trade_count": 0
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "execution": {
+    "initial_cash": 10000.0,
+    "allocation_fraction": 0.25,
+    "commission_rate": 0.0005,
+    "minimum_commission": 3.0,
+    "round_trip_spread_bps": 10.0,
+    "slippage_bps_per_side": 2.0,
+    "execution_mode": "bar_proxy",
+    "latency_minutes": 1,
+    "holding_minutes": 30,
+    "stop_loss_pct": 0.01,
+    "daily_loss_limit_pct": 0.02,
+    "score_threshold": 0.0,
+    "cooldown_minutes": 5
+  },
+  "assumptions": {
+    "broker_costs_verified": false,
+    "risk_mandate_approved": false,
+    "notes": "Illustrative research assumptions; ordinary matched same-day share round trips only. Personal tax, data fees and operating costs excluded."
+  },
+  "notes": [
+    "Final holdout consumed once; do not tune against this result.",
+    "Fit once on the last declared training window before holdout; no adaptation inside final test."
+  ]
+}

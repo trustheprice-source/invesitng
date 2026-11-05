@@ -1,0 +1,6 @@
+{
+  "name": "UniCredit Research Lab",
+  "description": "Institutional quantitative research and simulation workstation for UniCredit (UCG.MI) intraday trading strategies with server-enforced holdout gate and paper trading terminal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

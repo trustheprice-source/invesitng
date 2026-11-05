@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UniCredit Research Lab</title>
+<style>body{margin:0;background:#f3f5f7;color:#182b38;font:15px/1.6 system-ui,sans-serif}main{max-width:1150px;margin:40px auto;padding:0 24px 50px}h1{font-size:34px;line-height:1.15}h2{font-size:21px}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#39707a}.banner{padding:16px 20px;background:#fff1d5;border:1px solid #e7c987;border-radius:12px;font-weight:650}section{background:white;border:1px solid #dce3e8;border-radius:14px;padding:22px;margin:22px 0}.muted{color:#5c6c79}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:12px;text-align:left;border-bottom:1px solid #e2e7eb;white-space:nowrap}th{color:#52616f}svg{width:100%;max-height:240px}pre{white-space:pre-wrap;word-break:break-word;font-size:12px;background:#f7f9fa;padding:16px;border-radius:8px}footer{font-size:13px;color:#5c6c79}summary{cursor:pointer;font-weight:600}</style></head>
+<body><main><div class="eyebrow">UniCredit Research Lab · v0.1</div><h1>Historical evidence, with its limits visible</h1><p class="muted">Study ucg_intraday_v1 · holdout</p><p class="banner">SYNTHETIC DEMONSTRATION — invented prices, not UniCredit performance</p>
+<section><h2>Candidate comparison</h2><p>Net simulated returns include the configured trading costs. Screening thresholds, uncertainty estimates and sample limitations are part of the result. The largest historical return is not automatic evidence of an edge.</p><div class="scroll"><table><thead><tr><th>Candidate</th><th>State</th><th>Net return</th><th>Trades</th><th>Active weeks</th><th>Drawdown</th><th>Mean daily return interval</th></tr></thead><tbody><tr><td>ridge_v1</td><td>SYNTHETIC_DEMO</td><td>0.00%</td><td>0</td><td>0.00%</td><td>0.00%</td><td>0.00% to 0.00%</td></tr></tbody></table></div></section>
+<section><h2>ridge_v1</h2><p class="muted">SYNTHETIC_DEMO · 30 evaluated sessions</p><svg viewBox="0 0 740 170" role="img" aria-label="Simulated account equity by evaluated session"><line x1="20" y1="145" x2="720" y2="145" stroke="#d9e0e7"/><polyline points="20.00,145.00 44.14,145.00 68.28,145.00 92.41,145.00 116.55,145.00 140.69,145.00 164.83,145.00 188.97,145.00 213.10,145.00 237.24,145.00 261.38,145.00 285.52,145.00 309.66,145.00 333.79,145.00 357.93,145.00 382.07,145.00 406.21,145.00 430.34,145.00 454.48,145.00 478.62,145.00 502.76,145.00 526.90,145.00 551.03,145.00 575.17,145.00 599.31,145.00 623.45,145.00 647.59,145.00 671.72,145.00 695.86,145.00 720.00,145.00" fill="none" stroke="#246a77" stroke-width="2.5"/><text x="20" y="165" font-size="11" fill="#52616f">Session sequence · equity range €10,000.00 to €10,000.00</text></svg><p>Unmet checks: evaluation_sessions missing, nonfinite or below 60, trades missing, nonfinite or below 30, active_week_fraction missing, nonfinite or below 0.6, net_return must be finite and strictly positive, bootstrap lower bound must be strictly above min_mean_daily_return, Real-data provenance has not been independently verified, Synthetic observations cannot establish a qualifying trading strategy</p><details><summary>Evidence assumptions and diagnostics</summary><pre>{
+  &quot;metrics&quot;: {
+    &quot;evaluation_sessions&quot;: 30,
+    &quot;evaluation_weeks&quot;: 6,
+    &quot;net_return&quot;: 0.0,
+    &quot;annualized_return&quot;: 0.0,
+    &quot;annualization&quot;: &quot;Approximate 252-session convention; extrapolation, not a forecast.&quot;,
+    &quot;max_drawdown&quot;: 0.0,
+    &quot;worst_day&quot;: 0.0,
+    &quot;worst_week&quot;: 0.0,
+    &quot;win_rate&quot;: null,
+    &quot;trades&quot;: 0,
+    &quot;active_day_fraction&quot;: 0.0,
+    &quot;active_week_fraction&quot;: 0.0,
+    &quot;longest_no_trade_sessions&quot;: 30,
+    &quot;mean_daily_return&quot;: 0.0,
+    &quot;mean_trade_net_return&quot;: null,
+    &quot;profit_factor&quot;: null,
+    &quot;total_fees&quot;: 0.0,
+    &quot;total_net_pnl&quot;: 0.0,
+    &quot;bootstrap_ci&quot;: {
+      &quot;mean&quot;: 0.0,
+      &quot;lower&quot;: 0.0,
+      &quot;upper&quot;: 0.0,
+      &quot;alpha&quot;: 0.004166666666666667,
+      &quot;block_length&quot;: 5,
+      &quot;n_observations&quot;: 30,
+      &quot;n_bootstrap&quot;: 5000,
+      &quot;method&quot;: &quot;circular_block_bootstrap_percentile&quot;,
+      &quot;inference_valid&quot;: true,
+      &quot;inference_failures&quot;: [],
+      &quot;expected_samples_per_tail&quot;: 10.416666666666666,
+      &quot;minimum_expected_tail_samples&quot;: 10,
+      &quot;inference_policy&quot;: &quot;Screening checks only: block_length &lt; n_observations and at least 10 expected bootstrap draws per adjusted tail. Passing is not proof of statistical validity.&quot;,
+      &quot;assumptions&quot;: &quot;Approximate; stable returns and adequate block length for dependence. Not a future-profit probability.&quot;
+    },
+    &quot;family_size&quot;: 12,
+    &quot;nominal_alpha&quot;: 0.05,
+    &quot;inference_valid&quot;: true,
+    &quot;inference_failures&quot;: [],
+    &quot;multiple_testing_adjustment&quot;: &quot;Approximate Bonferroni alpha/family_size for the recorded bounded family. Does not protect against unrecorded or adaptive searches.&quot;,
+    &quot;tail_and_concentration&quot;: {
+      &quot;worst_trade_net_return&quot;: null,
+      &quot;best_day&quot;: 0.0,
+      &quot;best_day_share_of_positive_daily_pnl&quot;: null
+    }
+  },
+  &quot;evidence&quot;: {
+    &quot;status&quot;: &quot;SYNTHETIC_DEMO&quot;,
+    &quot;eligible_for_live&quot;: false,
+    &quot;data_kind&quot;: &quot;synthetic&quot;,
+    &quot;phase&quot;: &quot;holdout&quot;,
+    &quot;failed_checks&quot;: [
+      &quot;evaluation_sessions missing, nonfinite or below 60&quot;,
+      &quot;trades missing, nonfinite or below 30&quot;,
+      &quot;active_week_fraction missing, nonfinite or below 0.6&quot;,
+      &quot;net_return must be finite and strictly positive&quot;,
+      &quot;bootstrap lower bound must be strictly above min_mean_daily_return&quot;,
+      &quot;Real-data provenance has not been independently verified&quot;,
+      &quot;Synthetic observations cannot establish a qualifying trading strategy&quot;
+    ],
+    &quot;criteria&quot;: {
+      &quot;min_evaluation_sessions&quot;: 60,
+      &quot;min_trades&quot;: 30,
+      &quot;min_active_week_fraction&quot;: 0.6,
+      &quot;max_drawdown&quot;: 0.1,
+      &quot;min_mean_daily_return&quot;: 0.0
+    },
+    &quot;inference_valid&quot;: true,
+    &quot;caveats&quot;: [
+      &quot;Illustrative screening assumptions; thresholds are not statistical laws or a personal risk mandate.&quot;,
+      &quot;Circular block intervals are approximate conditional estimates, not probabilities of future profit.&quot;,
+      &quot;Inference screening requires blocks shorter than the sample and at least 10 expected bootstrap draws per adjusted tail; these checks do not establish stability or adequate dependence modeling.&quot;,
+      &quot;Family correction covers the recorded bounded search only; adaptive searches and regime changes remain risks.&quot;,
+      &quot;Historical drawdown does not cap future loss; bar execution approximations can miss real costs.&quot;,
+      &quot;A subsequent frozen prospective paper evaluation is required. This version never authorizes live trading.&quot;
+    ],
+    &quot;execution_warning&quot;: &quot;Minute-bar and quote-snapshot fills are approximations; queue, depth and transient spread behavior are not reproduced.&quot;,
+    &quot;drawdown_warning&quot;: &quot;Reported drawdown uses daily ending equity; it does not bound intraday or future losses.&quot;
+  }
+}</pre></details></section><section><h2>Run notes</h2><ul><li>No computation errors recorded.</li></ul><details><summary>Run metadata</summary><pre>{
+  &quot;study_id&quot;: &quot;ucg_intraday_v1&quot;,
+  &quot;phase&quot;: &quot;holdout&quot;,
+  &quot;data_kind&quot;: &quot;synthetic&quot;,
+  &quot;eligible_for_live&quot;: false,
+  &quot;frozen_hash&quot;: &quot;7d3aa955f8ed7402b676df61baaf6d88007d24c9b46b837b22c365435c873055&quot;,
+  &quot;created_at&quot;: &quot;2026-11-05T17:55:54.573837+00:00&quot;,
+  &quot;failures&quot;: [],
+  &quot;execution&quot;: {
+    &quot;initial_cash&quot;: 10000.0,
+    &quot;allocation_fraction&quot;: 0.25,
+    &quot;commission_rate&quot;: 0.0005,
+    &quot;minimum_commission&quot;: 3.0,
+    &quot;round_trip_spread_bps&quot;: 10.0,
+    &quot;slippage_bps_per_side&quot;: 2.0,
+    &quot;execution_mode&quot;: &quot;bar_proxy&quot;,
+    &quot;latency_minutes&quot;: 1,
+    &quot;holding_minutes&quot;: 30,
+    &quot;stop_loss_pct&quot;: 0.01,
+    &quot;daily_loss_limit_pct&quot;: 0.02,
+    &quot;score_threshold&quot;: 0.0,
+    &quot;cooldown_minutes&quot;: 5
+  },
+  &quot;assumptions&quot;: {
+    &quot;broker_costs_verified&quot;: false,
+    &quot;risk_mandate_approved&quot;: false,
+    &quot;notes&quot;: &quot;Illustrative research assumptions; ordinary matched same-day share round trips only. Personal tax, data fees and operating costs excluded.&quot;
+  },
+  &quot;notes&quot;: [
+    &quot;Final holdout consumed once; do not tune against this result.&quot;,
+    &quot;Fit once on the last declared training window before holdout; no adaptation inside final test.&quot;
+  ]
+}</pre></details></section>
+<footer>All account curves are simulations. Daily-close drawdown understates possible intraday losses. Confidence intervals depend on data, dependence, search and execution assumptions. No real broker connection exists. No trading strategy is guaranteed profitable.</footer></main></body></html>

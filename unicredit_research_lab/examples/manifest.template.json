@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "symbol": "UCG",
+  "currency": "EUR",
+  "timezone": "Europe/Rome",
+  "data_kind": "real",
+  "bar_minutes": 1,
+  "timestamp_semantics": "interval_start",
+  "price_basis": "raw",
+  "volume_basis": "primary_continuous",
+  "source": "REPLACE_WITH_VERIFIED_PROVIDER",
+  "source_reference": "REPLACE_WITH_SOURCE_AND_INSTRUMENT_REFERENCE",
+  "acquired_at": "REPLACE_WITH_ACTUAL_UTC_ACQUISITION_TIME",
+  "license_note": "REPLACE_WITH_AUTHORIZED_USE_TERMS",
+  "corporate_action_policy": "REPLACE_WITH_REVIEWED_CORPORATE_ACTION_AND_IDENTIFIER_POLICY",
+  "bars_file": "bars.csv",
+  "sessions_file": "sessions.csv",
+  "provenance_verified": false
+}

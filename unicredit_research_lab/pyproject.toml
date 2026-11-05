@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unicredit-research-lab"
+version = "0.1.0"
+description = "Historical intraday research and paper workflow for UniCredit; no live trading"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<3", "scikit-learn>=1.5,<2"]
+
+[project.optional-dependencies]
+boosting = ["lightgbm>=4.5,<5"]
+
+[project.scripts]
+ucg-lab = "ucg_lab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ucg_lab*"]
