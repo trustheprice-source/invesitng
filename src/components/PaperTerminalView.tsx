@@ -83,104 +83,72 @@ export const PaperTerminalView: React.FC<PaperTerminalViewProps> = ({ candidate,
     }
   }, [lastPrice]);
 
-  // Phase 4: Autonomous Virtual Trader loop
-  const daemonTickRef = useRef<number>(0);
+  // Phase 7: Real Server-Side Autonomous Paper Trading Daemon
+  const [daemonState, setDaemonState] = useState<any | null>(null);
+  const [journalEvents, setJournalEvents] = useState<any[]>([]);
+  const [isEmergencyStopping, setIsEmergencyStopping] = useState<boolean>(false);
+
+  // Poll server daemon state & journal every 3 seconds
   useEffect(() => {
-    if (!isDaemonActive) return;
-
-    const interval = setInterval(async () => {
-      daemonTickRef.current += 1;
-      const nowStr = new Date().toISOString().substring(11, 19);
-
-      // Every 3 ticks (~6 seconds), simulate a completed 5-min signal check
-      if (daemonTickRef.current % 3 === 0) {
-        // Evaluate simulated strategy condition
-        const isBullishSignal = Math.random() > 0.65;
-
-        if (isBullishSignal && !position) {
-          // Log SIGNAL_RECORDED prospective event
-          const signalEvent: VirtualExecutionLogEvent = {
-            id: `EVT-${Date.now().toString().slice(-6)}`,
-            timestamp: nowStr,
-            event_type: 'SIGNAL_RECORDED',
-            details: `Strategy ${candidate.name} emitted BUY qualification score (0.84 > 0.00). Entry scheduled at next bar open.`,
-            price: quote.ask,
-          };
-
-          setVirtualLogs((prev) => [signalEvent, ...prev.slice(0, 50)]);
-
-          // Queue order with latency simulation
-          setTimeout(() => {
-            const entryShares = sharesInput;
-            const fillPrice = quote.ask;
-            const notional = entryShares * fillPrice;
-            const fee = Math.max(config.minimum_commission, notional * config.commission_rate);
-
-            if (cash >= notional + fee) {
-              setCash((c) => c - notional - fee);
-              setPosition({
-                symbol: 'UCG.MI',
-                shares: entryShares,
-                average_entry: fillPrice,
-                current_price: fillPrice,
-                unrealized_pnl: 0,
-                unrealized_return_pct: 0,
-              });
-
-              const fillEvent: VirtualExecutionLogEvent = {
-                id: `EVT-${Date.now().toString().slice(-6)}`,
-                timestamp: new Date().toISOString().substring(11, 19),
-                event_type: 'ORDER_FILLED',
-                details: `Autonomous BUY filled: ${entryShares} shares @ €${fillPrice.toFixed(3)} (Fee: €${fee.toFixed(2)})`,
-                price: fillPrice,
-                shares: entryShares,
-              };
-              setVirtualLogs((prev) => [fillEvent, ...prev.slice(0, 50)]);
-
-              // Record in order ledger
-              setOrders((prev) => [
-                {
-                  id: `AUT-${Date.now().toString().slice(-6)}`,
-                  timestamp: new Date().toISOString().substring(11, 19),
-                  symbol: 'UCG.MI',
-                  side: 'BUY',
-                  quantity: entryShares,
-                  order_type: 'MARKET',
-                  status: 'FILLED',
-                  fill_price: fillPrice,
-                  fill_time: new Date().toISOString().substring(11, 19),
-                  fee,
-                  source: 'AUTONOMOUS_DAEMON',
-                },
-                ...prev,
-              ]);
-            }
-          }, config.latency_minutes * 1000); // 1-second scaled latency
-        } else if (position) {
-          // Check stop-loss
-          const stopPrice = position.average_entry * (1 - config.stop_loss_pct);
-          if (quote.bid <= stopPrice) {
-            const exitFee = Math.max(config.minimum_commission, position.shares * quote.bid * config.commission_rate);
-            const netExitPnl = (quote.bid - position.average_entry) * position.shares - exitFee;
-            setCash((c) => c + position.shares * quote.bid - exitFee);
-
-            const stopEvent: VirtualExecutionLogEvent = {
-              id: `EVT-${Date.now().toString().slice(-6)}`,
-              timestamp: nowStr,
-              event_type: 'STOP_TRIGGERED',
-              details: `Stop-loss touched intrabar at €${quote.bid.toFixed(3)} <= €${stopPrice.toFixed(3)}. Realized Net PnL: €${netExitPnl.toFixed(2)}`,
-              price: quote.bid,
-              pnl: netExitPnl,
-            };
-            setVirtualLogs((prev) => [stopEvent, ...prev.slice(0, 50)]);
+    let isMounted = true;
+    const fetchDaemonData = async () => {
+      try {
+        const [stateRes, journalRes] = await Promise.all([
+          fetch('/api/paper/daemon/state'),
+          fetch('/api/paper/daemon/journal?limit=60'),
+        ]);
+        if (stateRes.ok && isMounted) {
+          const s = await stateRes.json();
+          setDaemonState(s);
+          if (s.cash !== undefined) setCash(s.cash);
+          if (s.position) {
+            setPosition({
+              symbol: s.position.symbol,
+              shares: s.position.shares,
+              average_entry: s.position.average_entry,
+              current_price: s.last_provider_price || lastPrice,
+              unrealized_pnl: s.unrealized_pnl || 0,
+              unrealized_return_pct:
+                s.position.average_entry > 0
+                  ? ((s.unrealized_pnl || 0) / (s.position.average_entry * s.position.shares)) * 100
+                  : 0,
+            });
+          } else {
             setPosition(null);
           }
         }
-      }
-    }, 2000);
+        if (journalRes.ok && isMounted) {
+          const j = await journalRes.json();
+          setJournalEvents(j);
+        }
+      } catch {}
+    };
 
-    return () => clearInterval(interval);
-  }, [isDaemonActive, position, cash, quote, sharesInput, candidate, config]);
+    fetchDaemonData();
+    const timer = setInterval(fetchDaemonData, 3000);
+    return () => {
+      isMounted = false;
+      clearInterval(timer);
+    };
+  }, [lastPrice]);
+
+  const handleTriggerEmergencyStop = async () => {
+    setIsEmergencyStopping(true);
+    try {
+      const res = await fetch('/api/paper/daemon/emergency-stop', { method: 'POST' });
+      const data = await res.json();
+      if (data.state) setDaemonState(data.state);
+    } catch {}
+    setIsEmergencyStopping(false);
+  };
+
+  const handleResetSafety = async () => {
+    try {
+      const res = await fetch('/api/paper/daemon/reset-safety', { method: 'POST' });
+      const data = await res.json();
+      if (data.state) setDaemonState(data.state);
+    } catch {}
+  };
 
   const handlePlaceOrder = () => {
     const fee = Math.max(
@@ -366,45 +334,81 @@ export const PaperTerminalView: React.FC<PaperTerminalViewProps> = ({ candidate,
         </div>
       </div>
 
-      {/* Phase 4: Autonomous Virtual Trading Engine Daemon Control */}
+      {/* Phase 7: Real Autonomous Paper Trading Daemon Control & Safety Interlocks */}
       <div className="bg-[#111827] border border-slate-800 p-5 rounded-lg space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
             <Cpu className="w-5 h-5 text-cyan-400" />
             <div>
-              <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider">
-                Phase 4: Autonomous Virtual Trading Daemon
+              <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                <span>Phase 7: Autonomous Paper Trading Daemon</span>
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
+                  SERVER DAEMON ACTIVE
+                </span>
+                <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
+                  daemonState?.feed_status === 'CONNECTED' ? 'bg-cyan-950 text-cyan-400 border border-cyan-800' : 'bg-amber-950 text-amber-400 border border-amber-800'
+                }`}>
+                  FEED: {daemonState?.feed_status || 'CONNECTED'}
+                </span>
               </div>
               <p className="text-xs text-slate-400 font-mono mt-0.5">
-                Automatically monitors signals from frozen candidate <strong>{candidate.name}</strong>, records
-                prospective orders before subsequent bar closes, and executes with 1-min delay & stops.
+                Evaluates strictly causal signals before execution, applies 1-min delay, enforces 1% stop-loss & 17:25 CET liquidation.
               </p>
             </div>
           </div>
 
-          <button
-            onClick={() => setIsDaemonActive((prev) => !prev)}
-            className={`px-4 py-2 text-xs font-bold rounded transition-colors flex items-center gap-2 whitespace-nowrap shadow-sm ${
-              isDaemonActive
-                ? 'bg-red-500 hover:bg-red-400 text-white'
-                : 'bg-emerald-500 hover:bg-emerald-400 text-slate-950'
-            }`}
-          >
-            {isDaemonActive ? <Square className="w-3.5 h-3.5 fill-current" /> : <Play className="w-3.5 h-3.5 fill-current" />}
-            <span>{isDaemonActive ? 'Stop Autonomous Daemon' : 'Start Autonomous Daemon'}</span>
-          </button>
+          <div className="flex items-center gap-2">
+            {daemonState?.emergency_stop ? (
+              <button
+                onClick={handleResetSafety}
+                className="px-3.5 py-1.5 text-xs font-bold rounded bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center gap-1.5 transition-colors"
+              >
+                <ShieldAlert className="w-3.5 h-3.5" />
+                Reset Safety Locks
+              </button>
+            ) : (
+              <button
+                onClick={handleTriggerEmergencyStop}
+                disabled={isEmergencyStopping}
+                className="px-3.5 py-1.5 text-xs font-bold rounded bg-red-600 hover:bg-red-500 text-white flex items-center gap-1.5 transition-colors shadow-sm"
+              >
+                <ShieldAlert className="w-3.5 h-3.5" />
+                Emergency Stop (Kill Switch)
+              </button>
+            )}
+          </div>
         </div>
 
-        {isDaemonActive && (
-          <div className="p-3 bg-emerald-950/20 border border-emerald-900/40 rounded text-xs font-mono text-emerald-300 flex items-center justify-between">
-            <span className="flex items-center gap-2">
-              <Activity className="w-4 h-4 animate-spin text-emerald-400" />
-              Daemon Active: Evaluating strategy signals on real-time quote intervals. Orders will execute autonomously.
+        {/* Status Indicators Bar */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono">
+          <div className="p-2.5 bg-slate-900 border border-slate-800 rounded flex items-center justify-between">
+            <span className="text-slate-400">Cash / Position Reconciliation:</span>
+            <span className={`font-bold ${daemonState?.last_reconciliation_ok ? 'text-emerald-400' : 'text-amber-400'}`}>
+              {daemonState?.last_reconciliation_ok ? 'VERIFIED OK' : 'RECONCILING'}
             </span>
-            <span className="text-slate-400">eligible_for_live: false</span>
+          </div>
+          <div className="p-2.5 bg-slate-900 border border-slate-800 rounded flex items-center justify-between">
+            <span className="text-slate-400">Daily Loss Brake:</span>
+            <span className={`font-bold ${daemonState?.daily_loss_brake_latched ? 'text-red-400' : 'text-slate-200'}`}>
+              {daemonState?.daily_loss_brake_latched ? 'LATCHED (2% Limit)' : 'UNLATCHED (Ready)'}
+            </span>
+          </div>
+          <div className="p-2.5 bg-slate-900 border border-slate-800 rounded flex items-center justify-between">
+            <span className="text-slate-400">Live Execution Guard:</span>
+            <span className="text-amber-400 font-bold">eligible_for_live: false</span>
+          </div>
+        </div>
+
+        {daemonState?.emergency_stop && (
+          <div className="p-3 bg-red-950/40 border border-red-800 rounded text-xs font-mono text-red-200 flex items-center justify-between">
+            <span className="flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-red-400" />
+              EMERGENCY STOP ACTIVE: Open positions liquidated at market. New entries blocked until manually reset.
+            </span>
           </div>
         )}
       </div>
+
 
       {/* Grid: Order Ticket + OpenClaw Handoff Exporter */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

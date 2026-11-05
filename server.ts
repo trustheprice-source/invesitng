@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { PaperTradingDaemon } from './src/engine/paperDaemon';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -279,7 +280,46 @@ app.get('/api/market/blocker-report', (req, res) => {
   });
 });
 
-// 10. Paper Orders Ledger
+// 10. Server-Side Autonomous Paper Trading Engine
+const paperDaemon = new PaperTradingDaemon(DATA_DIR);
+paperDaemon.startBackgroundLoop(10000); // 10-second background polling cycle
+
+app.get('/api/paper/daemon/state', (req, res) => {
+  res.json(paperDaemon.getState());
+});
+
+app.get('/api/paper/daemon/journal', (req, res) => {
+  const limit = parseInt(req.query.limit as string || '100', 10);
+  res.json(paperDaemon.getJournal(limit));
+});
+
+app.post('/api/paper/daemon/emergency-stop', (req, res) => {
+  paperDaemon.triggerEmergencyStop();
+  res.json({ success: true, message: 'Emergency stop activated. Position liquidated and trading halted.', state: paperDaemon.getState() });
+});
+
+app.post('/api/paper/daemon/reset-safety', (req, res) => {
+  paperDaemon.resetEmergencyStop();
+  res.json({ success: true, message: 'Safety interlocks reset.', state: paperDaemon.getState() });
+});
+
+app.post('/api/paper/daemon/ingest-tick', async (req, res) => {
+  const { price, provider_timestamp, volume, vwap, rvol } = req.body;
+  if (!price || !isFinite(price)) {
+    return res.status(400).json({ error: 'Valid price numeric required.' });
+  }
+  await paperDaemon.ingestTick({
+    symbol: 'UCG.MI',
+    price,
+    provider_timestamp: provider_timestamp || new Date().toISOString(),
+    volume: volume || 5000,
+    vwap: vwap || price,
+    rvol: rvol || 1.0,
+  });
+  res.json({ success: true, state: paperDaemon.getState() });
+});
+
+// Backward compatibility: Paper Orders & Legacy Virtual Logs
 app.get('/api/paper/orders', (req, res) => {
   if (fs.existsSync(PAPERS_FILE)) {
     try {
@@ -302,8 +342,19 @@ app.post('/api/paper/order', (req, res) => {
   res.json({ success: true, order });
 });
 
-// 11. Autonomous Virtual Trading Event Logging
 app.get('/api/virtual-trader/logs', (req, res) => {
+  const journal = paperDaemon.getJournal(100);
+  if (journal.length > 0) {
+    return res.json(journal.map((j) => ({
+      id: j.id,
+      timestamp: j.timestamp,
+      event_type: j.event_type,
+      details: j.details,
+      price: j.price,
+      shares: j.shares,
+      recorded_at: j.timestamp,
+    })));
+  }
   if (fs.existsSync(VIRTUAL_LOG_FILE)) {
     try {
       return res.json(JSON.parse(fs.readFileSync(VIRTUAL_LOG_FILE, 'utf-8')));
@@ -328,6 +379,7 @@ app.post('/api/virtual-trader/event', (req, res) => {
   fs.writeFileSync(VIRTUAL_LOG_FILE, JSON.stringify(logs.slice(0, 200), null, 2));
   res.json({ success: true, count: logs.length });
 });
+
 
 // Mount Vite or serve static
 async function startServer() {

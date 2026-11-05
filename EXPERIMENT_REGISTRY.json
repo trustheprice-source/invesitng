@@ -1,0 +1,377 @@
+{
+  "study_id": "ucg_unconventional_discovery_v1",
+  "dataset_hash": "b35a7795d0170069fc13f2d757f48cf19b345b594994d9ed1306095dd2a1019a",
+  "data_provenance": {
+    "symbol": "UCG.MI",
+    "exchange": "MTAA_EURONEXT_MILAN",
+    "total_bars_5m": 6121,
+    "total_sessions": 60,
+    "development_sessions_count": 40,
+    "development_date_range": "2026-08-10 to 2026-10-02",
+    "holdout_sessions_count": 20,
+    "holdout_date_range": "2026-10-05 to 2026-11-05",
+    "holdout_status": "LOCKED_PREVIOUSLY_INSPECTED_ONE_SHOT"
+  },
+  "search_budget_total": 12,
+  "search_budget_consumed": 11,
+  "search_budget_remaining": 1,
+  "cost_model": {
+    "retail_baseline": {
+      "initial_cash": 10000.0,
+      "allocation_fraction": 0.25,
+      "position_size": 2500.0,
+      "commission_rate": 0.0005,
+      "minimum_commission": 3.0,
+      "round_trip_spread_bps": 10.0,
+      "slippage_bps_per_side": 2.0,
+      "effective_round_trip_hurdle_bps": 38.0
+    },
+    "institutional_benchmark": {
+      "initial_cash": 50000.0,
+      "allocation_fraction": 0.25,
+      "position_size": 12500.0,
+      "commission_rate": 0.0005,
+      "minimum_commission": 3.0,
+      "round_trip_spread_bps": 10.0,
+      "slippage_bps_per_side": 2.0,
+      "effective_round_trip_hurdle_bps": 24.0
+    }
+  },
+  "registered_trials": [
+    {
+      "trial_id": 1,
+      "candidate_id": "pullback_v1",
+      "strategy_family": "trend_pullback",
+      "registered_at": "2026-11-05T19:30:00Z",
+      "parameters": {
+        "rvol_threshold": 1.25,
+        "vwap_filter": true,
+        "min_minute": 45,
+        "max_minute": 450,
+        "holding_minutes": 30
+      },
+      "execution_mode": "bar_proxy_1m_interpolated",
+      "development_results": {
+        "trades": 114,
+        "win_rate": 0.351,
+        "gross_pnl": 367.12,
+        "total_fees": 684.0,
+        "net_pnl": -316.88,
+        "net_return": -0.0317,
+        "profit_factor": 0.65,
+        "max_drawdown": 0.0345
+      },
+      "verdict": "REJECTED_COST_HURDLE_FAILED"
+    },
+    {
+      "trial_id": 2,
+      "candidate_id": "breakout_v1",
+      "strategy_family": "opening_breakout",
+      "registered_at": "2026-11-05T20:00:00Z",
+      "parameters": {
+        "rvol_threshold": 1.4,
+        "min_minute": 35,
+        "max_minute": 240,
+        "holding_minutes": 30
+      },
+      "execution_mode": "bar_proxy_1m_interpolated",
+      "development_results": {
+        "trades": 23,
+        "win_rate": 0.261,
+        "gross_pnl": 85.34,
+        "total_fees": 138.0,
+        "net_pnl": -52.66,
+        "net_return": -0.0053,
+        "profit_factor": 0.71,
+        "max_drawdown": 0.0182
+      },
+      "verdict": "REJECTED_COST_HURDLE_FAILED"
+    },
+    {
+      "trial_id": 3,
+      "candidate_id": "mean_reversion_v1",
+      "strategy_family": "mean_reversion",
+      "registered_at": "2026-11-05T20:30:00Z",
+      "parameters": {
+        "vwap_deviation_pct": -0.007,
+        "rvol_threshold": 1.3,
+        "min_minute": 60,
+        "max_minute": 420,
+        "holding_minutes": 30
+      },
+      "execution_mode": "bar_proxy_1m_interpolated",
+      "development_results": {
+        "trades": 35,
+        "win_rate": 0.343,
+        "gross_pnl": 13.82,
+        "total_fees": 210.0,
+        "net_pnl": -196.18,
+        "net_return": -0.0196,
+        "profit_factor": 0.44,
+        "max_drawdown": 0.0221
+      },
+      "verdict": "REJECTED_COST_HURDLE_FAILED"
+    },
+    {
+      "trial_id": 4,
+      "candidate_id": "ridge_v1",
+      "strategy_family": "ridge_regression_linear",
+      "registered_at": "2026-11-05T21:00:00Z",
+      "parameters": {
+        "alpha": 10.0,
+        "train_sessions": 60,
+        "score_threshold": 0.0002,
+        "holding_minutes": 30
+      },
+      "execution_mode": "bar_proxy_1m_interpolated",
+      "development_results": {
+        "trades": 236,
+        "win_rate": 0.318,
+        "gross_pnl": 768.42,
+        "total_fees": 1416.0,
+        "net_pnl": -647.58,
+        "net_return": -0.0648,
+        "profit_factor": 0.58,
+        "max_drawdown": 0.0691
+      },
+      "verdict": "REJECTED_COST_HURDLE_FAILED"
+    },
+    {
+      "trial_id": 5,
+      "candidate_id": "sector_lead_lag_v1",
+      "strategy_family": "cross_asset_lead_lag",
+      "registered_at": "2026-11-05T22:30:00Z",
+      "parameters": {
+        "spread_threshold": -0.003,
+        "rvol_threshold": 1.2,
+        "min_minute": 60,
+        "max_minute": 420,
+        "holding_minutes": 60
+      },
+      "execution_mode": "bar_proxy_1m_interpolated",
+      "development_results": {
+        "trades": 19,
+        "win_rate": 0.421,
+        "gross_pnl": 65.42,
+        "total_fees": 114.0,
+        "net_pnl": -48.58,
+        "net_return": -0.0049,
+        "profit_factor": 0.74,
+        "max_drawdown": 0.0142
+      },
+      "verdict": "MARGINAL_AT_RETAIL_SIZING"
+    },
+    {
+      "trial_id": 6,
+      "candidate_id": "exp1_sector_lag_catchup",
+      "hypothesis_card": "Card 01",
+      "mechanism": "Asymmetric Sector Lead-Lag Catch-Up with XETRA Banking ETF (EXV1.DE)",
+      "registered_at": "2026-11-05T23:14:00Z",
+      "parameters": {
+        "spread_threshold": -0.0035,
+        "rvol_threshold": 1.2,
+        "min_minute": 60,
+        "max_minute": 390,
+        "holding_minutes": 60
+      },
+      "execution_mode": "bar_5m_direct_non_interpolated",
+      "development_results_retail": {
+        "capital": 10000.0,
+        "trades": 8,
+        "win_rate": 0.625,
+        "wins": 5,
+        "losses": 3,
+        "total_fees": 48.0,
+        "gross_pnl": 90.68,
+        "net_pnl": 42.68,
+        "net_return": 0.0043,
+        "profit_factor": 1.94,
+        "max_drawdown": 0.0038
+      },
+      "development_results_institutional": {
+        "capital": 50000.0,
+        "trades": 8,
+        "win_rate": 0.75,
+        "wins": 6,
+        "losses": 2,
+        "total_fees": 99.84,
+        "gross_pnl": 458.56,
+        "net_pnl": 358.72,
+        "net_return": 0.0072,
+        "profit_factor": 4.12,
+        "max_drawdown": 0.0029
+      },
+      "holdout_results_frozen": {
+        "sessions": 20,
+        "trades": 1,
+        "win_rate": 0.0,
+        "net_pnl": -16.88,
+        "net_return": -0.0017,
+        "note": "Spread threshold triggered only once during holdout; sample size insufficient for conclusive confirmation"
+      },
+      "falsification_results": {
+        "timing_delay_10m": "FAILED (Net PnL dropped from +€358 to -€65, confirming fast mean-reverting decay)",
+        "inverted_placebo_control": "PASSED (Buying when leading lost -€275, proving specificity to lagging catchup)",
+        "execution_stress_32bps": "PASSED (Maintained +€177 net PnL under doubled spread and tripled slippage)",
+        "concentration_check": "PASSED (Excluding best trade +€180 left +€178 across remaining 7 trades)",
+        "regime_split": "FAILED_STABILITY (0 trades in August period 1; 8 trades in volatile October period 2)"
+      },
+      "verdict": "RESEARCH_CANDIDATE_PENDING_MULTI_YEAR_EVIDENCE"
+    },
+    {
+      "trial_id": 7,
+      "candidate_id": "exp2_volume_absorption",
+      "hypothesis_card": "Card 03",
+      "mechanism": "Volume Absorption / Price Displacement Inefficiency below VWAP",
+      "registered_at": "2026-11-05T23:14:30Z",
+      "parameters": {
+        "rvol_threshold": 1.5,
+        "max_displacement_15m": 0.0015,
+        "vwap_deviation_min": -0.003,
+        "min_minute": 60,
+        "max_minute": 390,
+        "holding_minutes": 60
+      },
+      "execution_mode": "bar_5m_direct_non_interpolated",
+      "development_results_retail": {
+        "capital": 10000.0,
+        "trades": 36,
+        "win_rate": 0.111,
+        "wins": 4,
+        "losses": 32,
+        "total_fees": 216.0,
+        "gross_pnl": -202.39,
+        "net_pnl": -418.39,
+        "net_return": -0.0418,
+        "profit_factor": 0.28,
+        "max_drawdown": 0.0482
+      },
+      "development_results_institutional": {
+        "capital": 50000.0,
+        "trades": 36,
+        "win_rate": 0.194,
+        "wins": 7,
+        "losses": 29,
+        "total_fees": 449.28,
+        "gross_pnl": -1032.17,
+        "net_pnl": -1481.45,
+        "net_return": -0.0296,
+        "profit_factor": 0.42,
+        "max_drawdown": 0.0351
+      },
+      "verdict": "FALSIFIED_AND_REJECTED (Absorption hypothesis disproved; heavy volume near support indicates institutional distribution and subsequent breakdown)"
+    },
+    {
+      "trial_id": 8,
+      "candidate_id": "exp3_filtered_breakout",
+      "hypothesis_card": "Card 15",
+      "mechanism": "Anti-Breakout Rejection Filter (Requiring RVOL >= 1.5 and Sector Spread >= +10 bps)",
+      "registered_at": "2026-11-05T23:15:00Z",
+      "parameters": {
+        "rvol_threshold": 1.5,
+        "sector_spread_min": 0.001,
+        "min_minute": 35,
+        "max_minute": 240,
+        "holding_minutes": 60
+      },
+      "execution_mode": "bar_5m_direct_non_interpolated",
+      "development_results_retail": {
+        "capital": 10000.0,
+        "trades": 11,
+        "win_rate": 0.0,
+        "wins": 0,
+        "losses": 11,
+        "total_fees": 66.0,
+        "gross_pnl": -95.33,
+        "net_pnl": -161.33,
+        "net_return": -0.0161,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0195
+      },
+      "development_results_institutional": {
+        "capital": 50000.0,
+        "trades": 11,
+        "win_rate": 0.182,
+        "wins": 2,
+        "losses": 9,
+        "total_fees": 137.28,
+        "gross_pnl": -480.73,
+        "net_pnl": -618.01,
+        "net_return": -0.0124,
+        "profit_factor": 0.31,
+        "max_drawdown": 0.0162
+      },
+      "verdict": "FALSIFIED_AND_REJECTED (Predeclared rejection filters failed to rescue the breakout setup during bear trend regimes)"
+    },
+    {
+      "trial_id": 9,
+      "candidate_id": "exp9_filtered_catchup",
+      "mechanism": "Alternative Objective: Anti-Signal False-Lag Filter (suppressing entry when UCG ret_15m < -0.003)",
+      "registered_at": "2026-11-05T23:28:00Z",
+      "parameters": {
+        "spread_threshold": -0.0035,
+        "rvol_threshold": 1.2,
+        "min_ret_15m": -0.003,
+        "min_minute": 60,
+        "max_minute": 390,
+        "holding_minutes": 60
+      },
+      "execution_mode": "bar_5m_direct_non_interpolated",
+      "development_results_institutional": {
+        "capital": 50000.0,
+        "trades": 2,
+        "win_rate": 0.50,
+        "wins": 1,
+        "losses": 1,
+        "net_pnl": -62.98,
+        "profit_factor": 0.09
+      },
+      "verdict": "REJECTED (Over-filtering: suppressing prior dip eliminates the valuation gap required for catchup alpha)"
+    },
+    {
+      "trial_id": 10,
+      "candidate_id": "exp10_us_open_impulse",
+      "mechanism": "Direction D: US Cash Open Transatlantic Impulse at 15:35 CET",
+      "registered_at": "2026-11-05T23:28:30Z",
+      "parameters": {
+        "entry_minute": 390,
+        "trend_filter": "close > vwap and ret_60m > 0.002",
+        "rvol_threshold": 1.1,
+        "holding_minutes": 85
+      },
+      "execution_mode": "bar_5m_direct_non_interpolated",
+      "development_results_institutional": {
+        "capital": 50000.0,
+        "trades": 5,
+        "win_rate": 0.20,
+        "wins": 1,
+        "losses": 4,
+        "net_pnl": -186.96,
+        "profit_factor": 0.25
+      },
+      "verdict": "FALSIFIED_AND_REJECTED (US open generates whipsaw mean reversion rather than trend continuation in European banking)"
+    },
+    {
+      "trial_id": 11,
+      "candidate_id": "exp11_sequential_climax_reversal",
+      "mechanism": "Direction C: Sequential Morning Selling Climax & VWAP Range Recapture",
+      "registered_at": "2026-11-05T23:29:00Z",
+      "parameters": {
+        "climax_rvol": 1.3,
+        "recapture_condition": "prev_close < vwap and curr_close > vwap",
+        "holding_minutes": 60
+      },
+      "execution_mode": "bar_5m_direct_non_interpolated",
+      "development_results_institutional": {
+        "capital": 50000.0,
+        "trades": 27,
+        "win_rate": 0.148,
+        "wins": 4,
+        "losses": 23,
+        "net_pnl": -898.29,
+        "profit_factor": 0.15
+      },
+      "verdict": "FALSIFIED_AND_REJECTED (VWAP touches in macro downtrends represent backtests into resistance rather than bottoms)"
+    }
+  ]
+}

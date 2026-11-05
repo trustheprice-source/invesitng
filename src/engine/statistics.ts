@@ -125,7 +125,8 @@ export function summarizePerformance(
 
   const grossGains = tradeWins.reduce((acc, t) => acc + t.net_pnl, 0);
   const grossLosses = Math.abs(tradeLosses.reduce((acc, t) => acc + t.net_pnl, 0));
-  const profitFactor = grossLosses > 0 ? grossGains / grossLosses : grossGains > 0 ? 99.0 : null;
+  // Honest statistical handling: if there are no losses, profit factor is mathematically undefined (null)
+  const profitFactor = grossLosses > 0 ? grossGains / grossLosses : null;
 
   const totalFees = trades.reduce((acc, t) => acc + t.total_fees, 0);
   const totalNetPnl = trades.reduce((acc, t) => acc + t.net_pnl, 0);

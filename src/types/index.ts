@@ -52,7 +52,7 @@ export interface ExecutionConfig {
   minimum_commission: number;
   round_trip_spread_bps: number;
   slippage_bps_per_side: number;
-  execution_mode: 'bar_proxy' | 'quote_snapshot';
+  execution_mode: 'bar_5m' | 'bar_proxy' | 'quote_snapshot';
   latency_minutes: number;
   holding_minutes: number;
   stop_loss_pct: number;
@@ -62,7 +62,7 @@ export interface ExecutionConfig {
 }
 
 export type CandidateKind = 'rule' | 'model';
-export type RuleStrategyName = 'trend_pullback' | 'opening_breakout' | 'mean_reversion' | 'ridge_v1';
+export type RuleStrategyName = 'trend_pullback' | 'opening_breakout' | 'mean_reversion' | 'ridge_v1' | 'sector_lead_lag';
 export type PredictionHorizon = 5 | 15 | 30 | 60 | 120;
 
 export interface Candidate {
@@ -90,7 +90,8 @@ export interface Trade {
   gross_pnl: number;
   net_pnl: number;
   net_return: number;
-  exit_reason: 'time_exit' | 'stop_loss' | 'session_end' | 'daily_brake';
+  exit_reason: 'time_exit' | 'stop_loss' | 'session_end' | 'daily_brake' | 'take_profit';
+  holding_duration_minutes?: number;
 }
 
 export interface DailyEquity {

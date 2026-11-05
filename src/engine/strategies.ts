@@ -50,7 +50,21 @@ export const REGISTERED_CANDIDATES: Candidate[] = [
     },
     score_threshold: 0.0002,
   },
+  {
+    id: 'sector_lead_lag_v1',
+    kind: 'rule',
+    name: 'sector_lead_lag',
+    description: 'European Banking Sector Lead-Lag: Buy UCG when trailing EURO STOXX Banks ETF (EXV1.DE) by >= 30 bps with volume confirmation.',
+    parameters: {
+      spread_threshold: -0.003,
+      rvol_threshold: 1.2,
+      min_minute: 60,
+      max_minute: 420,
+    },
+    score_threshold: 0.0,
+  },
 ];
+
 
 export function generateSignals(
   features: FeatureRow[],
@@ -135,7 +149,27 @@ export function generateSignals(
         }
         break;
       }
+
+      case 'sector_lead_lag': {
+        const spreadThresh = (candidate.parameters.spread_threshold as number) || -0.003;
+        const rvolThresh = (candidate.parameters.rvol_threshold as number) || 1.2;
+        const minMin = (candidate.parameters.min_minute as number) || 60;
+        const maxMin = (candidate.parameters.max_minute as number) || 420;
+
+        if (
+          f.rvol_ready &&
+          f.minute_of_day >= minMin &&
+          f.minute_of_day <= maxMin &&
+          f.sector_spread_15m !== undefined &&
+          f.sector_spread_15m <= spreadThresh &&
+          f.rvol >= rvolThresh
+        ) {
+          score = 1.0;
+        }
+        break;
+      }
     }
+
 
     signalMap.set(f.timestamp, score);
   }
