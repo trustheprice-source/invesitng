@@ -303,6 +303,19 @@ app.post('/api/paper/daemon/reset-safety', (req, res) => {
   res.json({ success: true, message: 'Safety interlocks reset.', state: paperDaemon.getState() });
 });
 
+app.post('/api/paper/daemon/set-candidate', (req, res) => {
+  const { candidate_id, holding_minutes, allocation_fraction } = req.body;
+  if (!candidate_id) {
+    return res.status(400).json({ error: 'candidate_id is required.' });
+  }
+  paperDaemon.setActiveCandidate(
+    candidate_id,
+    holding_minutes || 60,
+    allocation_fraction || 0.25
+  );
+  res.json({ success: true, message: `Active candidate updated to ${candidate_id}`, state: paperDaemon.getState() });
+});
+
 app.post('/api/paper/daemon/ingest-tick', async (req, res) => {
   const { price, provider_timestamp, volume, vwap, rvol } = req.body;
   if (!price || !isFinite(price)) {

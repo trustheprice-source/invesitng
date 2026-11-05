@@ -354,12 +354,12 @@ export class PaperTradingDaemon {
         score = 0.78;
         reason = `Oversold deviation ${(vwapDev * 100).toFixed(2)}% < -0.70% with RVOL ${rvol.toFixed(2)} >= 1.3`;
       }
-    } else if (this.state.active_candidate_id === 'sector_lead_lag_v1') {
+    } else if (this.state.active_candidate_id === 'sector_lead_lag_v1' || this.state.active_candidate_id === 'exp1_sector_lag_catchup') {
       const sectorSpread = providerData.sector_spread_15m !== undefined ? providerData.sector_spread_15m : -0.0035;
-      if (sectorSpread <= -0.003 && rvol >= 1.2) {
+      if (sectorSpread <= -0.0035 && rvol >= 1.2) {
         qualifies = true;
         score = 0.92;
-        reason = `Sector spread ${(sectorSpread * 10000).toFixed(0)} bps <= -30 bps with RVOL ${rvol.toFixed(2)} >= 1.2 (Lead-Lag Catch-Up)`;
+        reason = `Sector spread ${(sectorSpread * 10000).toFixed(0)} bps <= -35 bps with RVOL ${rvol.toFixed(2)} >= 1.2 (Lead-Lag Catch-Up)`;
       }
     }
 
@@ -511,6 +511,17 @@ export class PaperTradingDaemon {
       details: 'Emergency stop and daily brake manually reset by risk administrator.',
     });
     this.saveState(this.state);
+  }
+
+  public setActiveCandidate(candidateId: string, holdingMinutes = 60, allocationFraction = 0.25) {
+    this.state.active_candidate_id = candidateId;
+    this.state.holding_minutes = holdingMinutes;
+    this.state.allocation_fraction = allocationFraction;
+    this.saveState(this.state);
+    this.appendJournal({
+      event_type: 'MARKET_STATUS_CHANGE',
+      details: `Active strategy candidate updated to [${candidateId}] (holding: ${holdingMinutes}m, allocation: ${(allocationFraction * 100).toFixed(0)}%).`,
+    });
   }
 
   // Start autonomous background loop polling every intervalMs

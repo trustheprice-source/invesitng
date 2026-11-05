@@ -373,5 +373,70 @@
       },
       "verdict": "FALSIFIED_AND_REJECTED (VWAP touches in macro downtrends represent backtests into resistance rather than bottoms)"
     }
-  ]
+  ],
+  "phase_10_independent_replication": {
+    "audit_status": "COMPLETED_AUTHORITATIVE_RECONCILIATION",
+    "budget_status": "PRESERVED_TRIAL_12_UNCOMMITTED",
+    "search_budget_remaining": 1,
+    "coordinator_state": "READY_FOR_AUTHORIZED_RESUMPTION",
+    "holdout_discrepancy_reconciliation": {
+      "holdout_trade_date": "2026-11-03",
+      "holdout_entry_time": "14:05 UTC",
+      "holdout_exit_time": "15:05 UTC",
+      "institutional_sizing_result": {
+        "capital": 50000.0,
+        "notional": 12500.0,
+        "gross_pnl": -70.21,
+        "fees": 12.45,
+        "net_pnl": -82.66,
+        "net_return": -0.0017
+      },
+      "retail_sizing_result": {
+        "capital": 10000.0,
+        "notional": 2500.0,
+        "gross_pnl": -10.88,
+        "fees": 6.00,
+        "net_pnl": -16.88,
+        "net_return": -0.0017
+      },
+      "explanation": "Both values (-€82.66 and -€16.88) derive from the exact same single out-of-sample holdout trade on 2026-11-03 under Institutional (€12,500 notional, 5 bps comm) vs Retail (€2,500 notional, €3 min comm) sizing regimes. Both produce identical -0.17% net portfolio return."
+    },
+    "development_sample_reconciliation": {
+      "development_sessions": 40,
+      "date_range": "2026-08-14 to 2026-10-08",
+      "october_7_trade": "Trade 8 occurred on 2026-10-07 (Session 39) at 11:50 UTC, inside the 40-session development partition.",
+      "total_development_trades": 8,
+      "institutional_net_pnl": 358.72,
+      "retail_net_pnl": 42.68
+    },
+    "statistical_significance_audit": {
+      "nominal_t_stat_vs_zero": 2.41,
+      "nominal_p_value_vs_zero": 0.024,
+      "hurdle_t_stat_vs_20bps_friction": 1.36,
+      "hurdle_p_value": 0.088,
+      "multiple_testing_trials": 11,
+      "bonferroni_adjusted_p_value": 0.968,
+      "statistical_verdict": "INSUFFICIENT_EVIDENCE (Edge not statistically certified after multiple-testing correction across 11 trials)"
+    },
+    "queued_untested_hypotheses": [
+      {
+        "id": "hyp12_btp_spread_arbitrage",
+        "name": "Italian BTP Sovereign Yield Spread Co-Integration",
+        "description": "Trading UCG against Italian 10Y BTP sovereign yield divergence rather than equity sector ETFs.",
+        "status": "QUEUED_UNTESTED"
+      },
+      {
+        "id": "hyp13_post_auction_liquidity_vacuum",
+        "name": "Post-Opening Auction Liquidity Vacuum Reversal",
+        "description": "Exploiting 09:00-09:15 CET inventory imbalance resolution following Euronext Milan opening uncrossing auction.",
+        "status": "QUEUED_UNTESTED"
+      },
+      {
+        "id": "hyp14_dark_pool_volume_footprint",
+        "name": "Cross-Venue Dark Pool Inventory Footprint",
+        "description": "Using off-book dark MTF trading volume prints as a precursor to lit market price adjustments.",
+        "status": "QUEUED_UNTESTED"
+      }
+    ]
+  }
 }
